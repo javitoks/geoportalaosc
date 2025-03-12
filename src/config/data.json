@@ -94,17 +94,6 @@
     {
       "type": "wmslayer",
       "peso": 70,
-      "nombre": "Industria y servicios",
-      "short_abstract": "Industrias, producción agropecuaria, minería, energía, comunicaciones, etc.",
-      "class": "",
-      "seccion": "industria-servicios",
-      "servicio": "wms",
-      "version": "1.3.0",
-      "host": "https://wms.ign.gob.ar/geoserver/industria-servicios/wms"
-    },
-    {
-      "type": "wmslayer",
-      "peso": 70,
       "nombre": "AOSC",
       "short_abstract": "Provincia de Corrientes",
       "class": "",

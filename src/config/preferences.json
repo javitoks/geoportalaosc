@@ -71,10 +71,10 @@
     },
   "logo": {
     "title":"Argenmap viewer",
-    "src": "src/styles/images/argenmap-banner-white.webp",
+    "src": "src/styles/images/logo-64x64.png",
     "height": "",
     "width": "",
-    "style": "background-size: 160px;",
+    "style": "background-size: 64px;",
     "srcLogoMini": "src/styles/images/argenmap-banner-white.webp",
     "miniHeight": "",
     "miniWidth": "",
@@ -82,11 +82,11 @@
     "link": "https://github.com/ign-argentina/argenmap"
   },
   "logoText": {
-    "content": "Lorem Ipsum",
+    "content": "GeoPortal AOSC",
     "title":"Lorem Ipsum",
     "link": "#"
   },
-  "title": "Argenmap",
+  "title": "GeoPortal AOSC - Ente Regulador",
   "website": "https://github.com/ign-argentina/argenmap",
   "favicon": "src/styles/images/favicon.ico",
   "geoprocessing": {
