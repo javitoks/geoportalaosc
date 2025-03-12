@@ -111,7 +111,7 @@
       "seccion": "dfghfdgh",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"
     },	
     {
       "type": "wmslayer",
