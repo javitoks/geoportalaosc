@@ -93,29 +93,7 @@
     },
     {
       "type": "wmslayer",
-      "peso": 70,
-      "nombre": "Industria y servicios",
-      "short_abstract": "Industrias, producción agropecuaria, minería, energía, comunicaciones, etc.",
-      "class": "",
-      "seccion": "industria-servicios",
-      "servicio": "wms",
-      "version": "1.3.0",
-      "host": "https://wms.ign.gob.ar/geoserver/industria-servicios/wms"
-    },
-    {
-      "type": "wmslayer",
-      "peso": 70,
-      "nombre": "AOSC",
-      "short_abstract": "Provincia de Corrientes",
-      "class": "",
-      "seccion": "dfghfdgh",
-      "servicio": "wms",
-      "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"
-    },	
-    {
-      "type": "wmslayer",
-      "peso": 120,
+      "peso": 20,
       "nombre": "Modelos digitales de elevaciones",
       "short_abstract": "Modelos digitales de elevaciones",
       "class": "",
@@ -123,7 +101,62 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://wms.ign.gob.ar/geoserver/modelos-digitales-elevaciones/wms"
-    }
+    },
+    {
+      "type": "wmslayer",
+      "peso": 30,
+      "nombre": "Geoservicios IDE Corrientes",
+      "short_abstract": "Modelos digitales de elevaciones",
+      "class": "",
+      "seccion": "gctes",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://geoportal.corrientes.gob.ar/geoserver/wms"
+    },
+    {
+      "type": "wmslayer",
+      "peso": 40,
+      "nombre": "Geoservicios AOSC",
+      "short_abstract": "Modelos digitales de elevaciones",
+      "class": "",
+      "seccion": "gaosc",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"
+    },
+  {
+    "type": "wmslayer",
+    "peso": 60,
+    "nombre": "Geoservicios CONAE",
+    "short_abstract": "Modelos digitales de elevaciones",
+    "class": "",
+    "seccion": "gconae",
+    "servicio": "wms",
+    "version": "1.3.0",
+    "host": "https://geotematico01.conae.gov.ar/geoserver/wms"
+  },
+  {
+    "type": "wmslayer",
+    "peso": 70,
+    "nombre": "Geoservicios INTA Corrientes",
+    "short_abstract": "Modelos digitales de elevaciones",
+    "class": "",
+    "seccion": "gintactes",
+    "servicio": "wms",
+    "version": "1.3.0",
+    "host": "https://geo-nodo09.inta.gob.ar/geoserver/wms"
+  },
+  {
+    "type": "wmslayer",
+    "peso": 80,
+    "nombre": "Geoservicios INTA",
+    "short_abstract": "Modelos digitales de elevaciones",
+    "class": "",
+    "seccion": "ginta",
+    "servicio": "wms",
+    "version": "1.0.0",
+    "host": "https://geo-backend.inta.gob.ar/geoserver/wms"
+  }  
   ],
   "template": "ign-geoportal-basic"
 }
