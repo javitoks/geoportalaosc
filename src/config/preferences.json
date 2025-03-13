@@ -18,8 +18,8 @@
   "excluded_plugins": ["minimap"],
   "mapConfig": {
     "center": {
-      "latitude": -29.097, 
-      "longitude": -57.832
+      "latitude": -28.9625, 
+      "longitude": -57.7167
     },
     "zoom": {
       "initial": 8,

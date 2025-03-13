@@ -74,14 +74,30 @@
           }
         },
         {
-          "titulo": "Imágenes satelitales Here",
-          "nombre": "here_imagery",
+          "titulo": "Google Satellite",
+          "nombre": "google_satellite",
           "servicio": "tms",
           "version": "1.0.0",
-          "attribution": "Imágenes satelitales © here",
-          "host": "https://2.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8?app_id=XiMlA4JwMurUFFYUWYe3&app_code=oTsmqovbl2YudG3E0UlxDA",
+          "attribution": "Map data ©2025 Google",
+          "host": "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
           "legendImg": "src/styles/images/here.png",
-          "peso": 50,
+          "peso": 60,
+          "zoom": {
+            "min": 8,
+            "max": 20,
+            "nativeMin": 3,
+            "nativeMax": 20
+          }
+        },
+        {
+          "titulo": "Carto Positron",
+          "nombre": "carto_positron",
+          "servicio": "tms",
+          "version": "1.0.0",
+          "attribution": "©CARTO 2025",
+          "host": " https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+          "legendImg": "src/styles/images/esrit.png",
+          "peso": 70,
           "zoom": {
             "min": 3,
             "max": 20,
@@ -89,6 +105,11 @@
             "nativeMax": 20
           }
         }
+
+       
+
+
+
       ]
     },
     {
