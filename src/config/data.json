@@ -117,6 +117,75 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"      
+    },
+    {
+      "type": "wmslayer",
+      "peso": 80,
+      "nombre": "Barrios y Calles - Distrito LORETO",
+      "short_abstract": "Barrios y calles del pueblo",
+      "class": "",
+      "seccion": "barrios-calles-loreto",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "customize_layers": {
+        "Ente_Regulador_10viviendas": {
+          "new_title": "Barrio 10 Viviendas",
+          "new_abstract": "Barrio 10 Viviendas",
+          "new_keywords": "barrio, 10 viviendas"
+        },
+        "Ente_Regulador_20viviendas": {
+          "new_title": "Barrio 20 Viviendas",
+          "new_abstract": "Barrio 20 Viviendas",
+          "new_keywords": "barrio, 20 viviendas"
+        },
+        "Ente_Regulador_Canieria63": {
+          "new_title": "Cañeria de 63 mm",
+          "new_abstract": "Cañeria de 63 mm",
+          "new_keywords": "cañeria, 63mm, red nueva"
+        },
+        "Ente_Regulador_Canieria50": {
+          "new_title": "Cañeria de 50 mm",
+          "new_abstract": "Cañeria de 50 mm",
+          "new_keywords": "cañeria, 50mm, red nueva"
+        },
+        "Ente_Regulador_Cajasdesagues": {
+          "new_title": "Cajas de Desague",
+          "new_abstract": "Cajas de Desague",
+          "new_keywords": "cajas, desague, red nueva"
+        },
+        "Ente_Regulador_Tanques": {
+          "new_title": "Tanques",
+          "new_abstract": "Tanques",
+          "new_keywords": "tanques, red nueva"
+        },
+        "Ente_Regulador_Tapones": {
+          "new_title": "Tapones",
+          "new_abstract": "Tapones",
+          "new_keywords": "tapones, red nueva"
+        },
+        "Ente_Regulador_Valvulas": {
+          "new_title": "Válvulas",
+          "new_abstract": "Válvulas",
+          "new_keywords": "valvulas, red nueva"
+        },
+        "Ente_Regulador_Perforaciones": {
+          "new_title": "Perforaciones",
+          "new_abstract": "Perforaciones",
+          "new_keywords": "perforaciones, red nueva"
+        },
+        "Ente_Regulador_Redmangueras": {
+          "new_title": "Red de Mangueras",
+          "new_abstract": "Red de Mangueras",
+          "new_keywords": "red mangueras, red nueva"
+        },
+        "Ente_Regulador_Nudos": {
+          "new_title": "Nudos",
+          "new_abstract": "Nudos",
+          "new_keywords": "nudos, red nueva"
+        }
+
+      }
     },	
     {
       "type": "wmslayer",
@@ -185,24 +254,9 @@
           "new_keywords": "nudos, red nueva"
         }
 
-      },
+      }
       
-      "allowed_layers": 
-      [ 
-        "Ente_Regulador_Canieria110",
-        "Ente_Regulador_Canieria75",
-        "Ente_Regulador_Canieria63",
-        "Ente_Regulador_Canieria50",
-        "Ente_Regulador_Cajasdesagues",
-        "Ente_Regulador_Tanques",
-        "Ente_Regulador_Tapones",
-        "Ente_Regulador_Valvulas",
-        "Ente_Regulador_Perforaciones",
-        "Ente_Regulador_Redmangueras",
-        "Ente_Regulador_Nudos"
       
-      ]
-
       
     }
     
