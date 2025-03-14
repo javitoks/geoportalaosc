@@ -105,11 +105,6 @@
             "nativeMax": 20
           }
         }
-
-       
-
-
-
       ]
     },
     {
@@ -118,22 +113,11 @@
       "nombre": "AOSC - Distrito Loreto",
       "short_abstract": "Provincia de Corrientes",
       "class": "",
-      "seccion": "dfghfdgh",
+      "seccion": "distrito-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"      
     },	
-    {
-      "type": "wmslayer",
-      "peso": 120,
-      "nombre": "Modelos digitales de elevaciones",
-      "short_abstract": "Modelos digitales de elevaciones",
-      "class": "",
-      "seccion": "mde",
-      "servicio": "wms",
-      "version": "1.3.0",
-      "host": "https://wms.ign.gob.ar/geoserver/modelos-digitales-elevaciones/wms"
-    },
     {
       "type": "wmslayer",
       "peso": 90,
@@ -164,6 +148,11 @@
           "new_title": "Cañeria de 50 mm",
           "new_abstract": "Cañeria de 50 mm",
           "new_keywords": "cañeria, 50mm, red nueva"
+        },
+        "Ente_Regulador_Cajasdesagues": {
+          "new_title": "Cajas de Desague",
+          "new_abstract": "Cajas de Desague",
+          "new_keywords": "cajas, desague, red nueva"
         }
       },
       
@@ -172,7 +161,8 @@
         "Ente_Regulador_Canieria110",
         "Ente_Regulador_Canieria75",
         "Ente_Regulador_Canieria63",
-        "Ente_Regulador_Canieria50"
+        "Ente_Regulador_Canieria50",
+        "Ente_Regulador_Cajasdesagues"
       
       ]
 
