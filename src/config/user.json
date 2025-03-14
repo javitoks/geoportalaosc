@@ -1,0 +1,10 @@
+[
+  {
+    "name": "admin",
+    "rol": "admin",    
+    "clave": "$2b$10$8eDthUAhzpC8F/K26fTnQe2UGueN477d5kTC1EEm8ik7ec1cC3bmi", 
+    "lat_4326": -27.7667,
+    "lon_4326": -57.2667,
+    "zoom": 14
+  }
+]
