@@ -32,79 +32,62 @@ loginatic = function () {
 
   this.process = async () => {
     let pwd = document.getElementById("input-pwd").value;
-
+    var bcrypt = window.dcodeIO.bcrypt;
+    
     if (!pwd.length) {
       alert(this.noPassword);
-      // new UserMessage(this.noPassword, true, 'error');
+      return;
     }
-
-    if (pwd.length) {
-      //let result = await fetch("src/config/user.json")
-      let notLoggedTxt = this.notLoggedTxt;
-      let result = await fetch(app.login.api + pwd).then(function (response) {
-        if (response.status >= 500) {
-          new UserMessage(
-            "Looks like there was a problem. Status Code: " + response.status,
-            true,
-            "error"
-          );
-          return;
-        }
-        if (response.status !== 200) {
-          alert(notLoggedTxt);
-          return;
-        }
-        if (response.status === 200) {
-          return response.json();
-        }
-      });
-      let logged = false;
-
-      /* if (result.clave == pwd) { */
-      if (result.clave) {
+  
+    let result = await fetch("src/config/user.json");
+    let user = await result.json();
+  
+    if (user && user.length > 0) {
+      let storedHash = user[0].clave; // Suponiendo que solo hay un usuario
+      let isPasswordCorrect = await bcrypt.compare(pwd, storedHash); // Verificar el hash
+  
+      if (isPasswordCorrect) {
         let recuerdame = $("#inp-recuerdame").prop("checked") ? 1 : 0;
-
-        this.currentLogin = result;
-
-        let lat = result.lat_4326;
-        let lon = result.lon_4326;
-        let zoom = result.zoom ?? 13;
-
-        /* document.title += ' - ' + json[i].nombregobiernolocal;
-                let logoTitle = document.getElementById('logoText');
-                logoTitle.innerText += ' - ' + json[i].nombregobiernolocal; */
-
+        this.currentLogin = user[0];
+  
+        let name = user[0].name;
+        let lat = user[0].lat_4326;
+        let lon = user[0].lon_4326;
+        let zoom = user[0].zoom ?? 13;
+  
         mapa.setView([lat, lon], zoom);
         document.getElementById("login-wrapper").style.display = "none";
-        logged = true;
-
+  
         if ($("#btn-logout").length == 0) {
           this._addLogoutButton();
         }
-
+  
         if (recuerdame == 1) {
+          setCookie("name", name);
           setCookie("lat", lat);
           setCookie("lon", lon);
           setCookie("zoom", 10);
           setCookie("autologin", 1);
         }
+  
+      } else {
+        alert(this.notLoggedTxt);
       }
-
-      if (result.external_link) {
-        result.nam = result.nam.replaceAll("_", " ");
-        menu_ui.removeButton("external-link-li"); // in case if exists, remove it first
-        menu_ui.addButton({ 
-          id: "external-link-li", 
-          link: result.external_link, 
-          text: "Plataforma CONAE " + result.nam,
-          title: "Abrir visor Ordenamiento Territorial " + result.nam,
+  
+      if (user[0].external_link) {
+        let name = user[0].nam.replaceAll("_", " ");
+        menu_ui.removeButton("external-link-li");
+        menu_ui.addButton({
+          id: "external-link-li",
+          link: user[0].external_link,
+          text: "Plataforma CONAE " + name,
+          title: "Abrir visor Ordenamiento Territorial " + name,
           location: "top"
         });
       }
-
-      if (!logged) {
-        alert(this.notLoggedTxt);
-      }
+  
+    } else {
+      alert(this.notLoggedTxt);
     }
   };
 
@@ -127,7 +110,7 @@ loginatic = function () {
     const wrapperHtml = `
             <div class="container-fluid col-12 col-xs-12 col-sm-6 col-md-5 mt-5 text-center center-flex">
                 <div class="login">
-                    <img src="src/styles/images/lupa.png" width="20%">
+                    <img src="src/styles/images/aosc.png" width="30%">
                     <h3>Acceso al Visor de mapas</h3>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">

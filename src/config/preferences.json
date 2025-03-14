@@ -68,10 +68,10 @@
     "textLegendMenu":"#fafafa",
     "textLegendMenuStyle":"",
     "iconBar":"#4f4f4f"
-    },
+  },
   "logo": {
     "title":"GeoPortal AOSC - Ente Regulador",
-    "src": "src/styles/images/logo-64x64.png",
+    "src": "src/styles/images/aosc.png",
     "height": "",
     "width": "",
     "style": "background-size: 64px;",
@@ -145,5 +145,8 @@
     "basemap_max_zoom": " y máximo de ",
     "basemap_legend_button_text": "Ver leyenda del mapa",
     "delete_geometry": "Eliminar geometría"
+  },
+  "login":{
+    "isActive": true
   }
 }
