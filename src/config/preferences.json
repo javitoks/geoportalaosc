@@ -87,7 +87,7 @@
     "link": "#"
   },
   "title": "GeoPortal AOSC - Ente Regulador",
-  "website": "https://github.com/ign-argentina/argenmap",
+  "website": "https://aosc.gob.ar",
   "favicon": "src/styles/images/favicon.ico",
   "geoprocessing": {
     "isActive": true,
