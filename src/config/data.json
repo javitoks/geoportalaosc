@@ -42,38 +42,6 @@
           }
         },
         {
-          "titulo": "Imágenes satelitales Esri",
-          "nombre": "esri_imagery",
-          "servicio": "tms",
-          "version": "1.0.0",
-          "attribution": "Imágenes satelitales © Esri",
-          "host": "https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-          "legendImg": "src/styles/images/esri.png",
-          "peso": 30,
-          "zoom": {
-            "min": 3,
-            "max": 17,
-            "nativeMin": 3,
-            "nativeMax": 17
-          }
-        },
-        {
-          "titulo": "Mapa topográfico Esri",
-          "nombre": "esri_imagery_t",
-          "servicio": "tms",
-          "version": "1.0.0",
-          "attribution": "Mapa topográfico © Esri",
-          "host": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
-          "legendImg": "src/styles/images/esrit.png",
-          "peso": 40,
-          "zoom": {
-            "min": 3,
-            "max": 8,
-            "nativeMin": 3,
-            "nativeMax": 8
-          }
-        },
-        {
           "titulo": "Google Satellite",
           "nombre": "google_satellite",
           "servicio": "tms",
@@ -109,19 +77,26 @@
     },
     {
       "type": "wmslayer",
-      "peso": 70,
-      "nombre": "AOSC - Distrito Loreto",
+      "peso": 10,
+      "nombre": "Distrito LORETO",
       "short_abstract": "Provincia de Corrientes",
       "class": "",
       "seccion": "distrito-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms"      
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "customize_layers": {
+        "Ente_Regulador_Reparaciones": {
+          "new_title": "Reparaciones en la red",
+          "new_abstract": "Reparaciones",
+          "new_keywords": "reparaciones, loreto"
+        }
+      }      
     },
     {
       "type": "wmslayer",
-      "peso": 80,
-      "nombre": "Barrios y Calles - Distrito LORETO",
+      "peso": 30,
+      "nombre": "Distrito LORETO - Barrios y Calles",
       "short_abstract": "Barrios y calles del pueblo",
       "class": "",
       "seccion": "barrios-calles-loreto",
@@ -139,58 +114,125 @@
           "new_abstract": "Barrio 20 Viviendas",
           "new_keywords": "barrio, 20 viviendas"
         },
-        "Ente_Regulador_Canieria63": {
-          "new_title": "Cañeria de 63 mm",
-          "new_abstract": "Cañeria de 63 mm",
-          "new_keywords": "cañeria, 63mm, red nueva"
+        "Ente_Regulador_24viviendas": {
+          "new_title": "Barrio 24 Viviendas",
+          "new_abstract": "Barrio 24 Viviendas",
+          "new_keywords": "barrio, loreto, 24 viviendas"
         },
-        "Ente_Regulador_Canieria50": {
-          "new_title": "Cañeria de 50 mm",
-          "new_abstract": "Cañeria de 50 mm",
-          "new_keywords": "cañeria, 50mm, red nueva"
+        "Ente_Regulador_40viviendas": {
+          "new_title": "Barrio 40 Viviendas",
+          "new_abstract": "Barrio 40 Viviendas",
+          "new_keywords": "barrio, loreto, 40 viviendas"
         },
-        "Ente_Regulador_Cajasdesagues": {
-          "new_title": "Cajas de Desague",
-          "new_abstract": "Cajas de Desague",
-          "new_keywords": "cajas, desague, red nueva"
+        "Ente_Regulador_Aserradero": {
+          "new_title": "Barrio Aserradero",
+          "new_abstract": "Barrio Aserradero",
+          "new_keywords": "barrio, loreto, aserradero"
         },
-        "Ente_Regulador_Tanques": {
-          "new_title": "Tanques",
-          "new_abstract": "Tanques",
-          "new_keywords": "tanques, red nueva"
+        "Ente_Regulador_Capilla": {
+          "new_title": "Barrio Capilla",
+          "new_abstract": "Barrio Capilla",
+          "new_keywords": "barrio, loreto, capilla"
         },
-        "Ente_Regulador_Tapones": {
-          "new_title": "Tapones",
-          "new_abstract": "Tapones",
-          "new_keywords": "tapones, red nueva"
+        "Ente_Regulador_Centro": {
+          "new_title": "Barrio Centro",
+          "new_abstract": "Barrio Centro",
+          "new_keywords": "barrio, loreto, centro"
         },
-        "Ente_Regulador_Valvulas": {
-          "new_title": "Válvulas",
-          "new_abstract": "Válvulas",
-          "new_keywords": "valvulas, red nueva"
+        "Ente_Regulador_Cruzdelosmilagros": {
+          "new_title": "Barrio Cruz de los Milagros",
+          "new_abstract": "Barrio Cruz de los Milagros",
+          "new_keywords": "barrio, loreto, cruz de los milagros"
         },
-        "Ente_Regulador_Perforaciones": {
-          "new_title": "Perforaciones",
-          "new_abstract": "Perforaciones",
-          "new_keywords": "perforaciones, red nueva"
+        "Ente_Regulador_Hipodromo": {
+          "new_title": "Barrio Hipódromo",
+          "new_abstract": "Barrio Hipódromo",
+          "new_keywords": "barrio, loreto, hipodromo"
         },
-        "Ente_Regulador_Redmangueras": {
-          "new_title": "Red de Mangueras",
-          "new_abstract": "Red de Mangueras",
-          "new_keywords": "red mangueras, red nueva"
+        "Ente_Regulador_Hospital": {
+          "new_title": "Barrio Hospital",
+          "new_abstract": "Barrio Hospital",
+          "new_keywords": "barrio, loreto, hospital"
         },
-        "Ente_Regulador_Nudos": {
-          "new_title": "Nudos",
-          "new_abstract": "Nudos",
-          "new_keywords": "nudos, red nueva"
+         "Ente_Regulador_Sur": {
+          "new_title": "Barrio Sur",
+          "new_abstract": "Barrio Sur",
+          "new_keywords": "barrio, loreto, sur"
+        },
+        "Ente_Regulador_SanJuan": {
+          "new_title": "Barrio San Juan",
+          "new_abstract": "Barrio San Juan",
+          "new_keywords": "san juan, barrio, loreto"
+        },
+        "Ente_Regulador_Progreso": {
+          "new_title": "Barrio Progreso",
+          "new_abstract": "Barrio Progreso",
+          "new_keywords": "progreso, barrio, loreto"
+        },
+        "Ente_Regulador_Paiubre": {
+          "new_title": "Barrio Paiubre",
+          "new_abstract": "Barrio Paiubre",
+          "new_keywords": "barrio, paiubre, loreto"
+        },
+        "Ente_Regulador_NuevoRenacer": {
+          "new_title": "Barrio Nuevo Renacer",
+          "new_abstract": "Barrio Nuevo Renacer",
+          "new_keywords": "nuevo renacer, barrio, loreto"
+        },
+        "Ente_Regulador_Chacras": {
+          "new_title": "Chacras",
+          "new_abstract": "Chacras",
+          "new_keywords": "chacras, loreto"
+        },
+        "Ente_Regulador_Lagunas": {
+          "new_title": "Lagunas",
+          "new_abstract": "Lagunas",
+          "new_keywords": "lagunas, loreto"
+        },
+        "Ente_Regulador_Calles": {
+          "new_title": "Calles",
+          "new_abstract": "Calles",
+          "new_keywords": "calles, loreto"
+        },
+        "Ente_Regulador_Manzanas": {
+          "new_title": "Manzanas",
+          "new_abstract": "Manzanas",
+          "new_keywords": "manzanas, loreto"
         }
 
+
       }
-    },	
+    },
     {
       "type": "wmslayer",
-      "peso": 90,
-      "nombre": "Red de Agua Potable - Distrito LORETO",
+      "peso": 20,
+      "nombre": "Distrito LORETO - Cuentas e Inmuebles",
+      "short_abstract": "Datos de cuentas e inmuebles",
+      "class": "",
+      "seccion": "inmuebles-cuentas",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "customize_layers": {
+        "Ente_Regulador_Inmuebles_pol": {
+          "new_title": "Inmuebles - Polígonos",
+          "new_abstract": "Inmuebles - Polígonos",
+          "new_keywords": "inmuebles, poligonos, loreto"
+        },
+        "Ente_Regulador_CuentasUsuarios": {
+          "new_title": "Cuentas y Usuarios",
+          "new_abstract": "Cuentas y Usuarios",
+          "new_keywords": "cañeria, 110 mm, red nueva"
+        }
+        
+
+
+      }
+    },		
+    {
+      "type": "wmslayer",
+      "peso": 40,
+      "nombre": "Distrito LORETO - Red de Agua Potable",
       "short_abstract": "Cañeria instalada, existente y nueva",
       "class": "",
       "seccion": "red-agua-potable-loreto",
