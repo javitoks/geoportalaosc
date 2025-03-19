@@ -71,10 +71,10 @@
   },
   "logo": {
     "title":"GeoPortal AOSC - Ente Regulador",
-    "src": "src/styles/images/aosc.png",
+    "src": "src/styles/images/gota_aosc.png",
     "height": "",
     "width": "",
-    "style": "background-size: 64px;",
+    "style": "background-size: 30px;",  
     "srcLogoMini": "src/styles/images/argenmap-banner-white.webp",
     "miniHeight": "",
     "miniWidth": "",
@@ -82,7 +82,7 @@
     "link": "https://aosc.gob.ar"
   },
   "logoText": {
-    "content": "GeoPortal AOSC",
+    "content": "GeoPortal AOSC - Ente Regulador",
     "title":"AOSC - Ente Regulador",
     "link": "#"
   },
