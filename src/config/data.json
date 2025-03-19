@@ -91,6 +91,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "feature_info_format": "application/json",
       "customize_layers": {
         "Ente_Regulador_Reparaciones": {
           "new_title": "Reparaciones en la red",
@@ -324,6 +325,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://geoportal.corrientes.gob.ar/geoserver/wms"
+      
     }		
   ],
   "template": "ign-geoportal-basic"
