@@ -10,9 +10,9 @@
     "isActive": false
   },
   "metaTags": {
-    "title": "",
+    "title": "GeoPortal AOSC - Ente Regulador",
     "description": "",
-    "image": ""
+    "image": "src/styles/images/gota_aosc.png"
   },
   "analytics_ids": [],
   "excluded_plugins": ["minimap"],
