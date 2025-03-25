@@ -333,6 +333,30 @@
       "version": "1.3.0",
       "host": "https://geoportal.corrientes.gob.ar/geoserver/wms"
       
+    },
+    {
+      "tab": {
+          "id": "Datos3",
+          "searcheable": false,
+          "content": "Laboratorio AOSC"
+        },
+      "type": "wmslayer",
+      "peso": 20,
+      "nombre": "Relevamiento Perforaciones 2024",
+      "short_abstract": "Relevamiento de Perforaciones 2024",
+      "class": "",
+      "seccion": "laboratorio-perfos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      
+      "customize_layers": {
+        "Ente_regulador_perforaciones_laboratorio": {
+          "new_title": "Perforaciones Relevadas 2024",
+          "new_abstract": "Perforaciones Relevadas 2024",
+          "new_keywords": "perforaciones, laboratorio, relevamiento"
+        }
+      }
     }
     
   ],
