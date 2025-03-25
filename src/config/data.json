@@ -91,7 +91,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
-      "feature_info_format": "application/json",
+      
       "customize_layers": {
         "Ente_Regulador_Reparaciones": {
           "new_title": "Reparaciones en la red",
@@ -108,13 +108,14 @@
         },
       "type": "wmslayer",
       "peso": 30,
-      "nombre": "Distrito LORETO - Barrios y Calles",
+      "nombre": "Barrios y Calles",
       "short_abstract": "Barrios y calles del pueblo",
       "class": "",
       "seccion": "barrios-calles-loreto",
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      
       "customize_layers": {
         "Ente_Regulador_10viviendas": {
           "new_title": "Barrio 10 Viviendas",
@@ -221,13 +222,14 @@
         },
       "type": "wmslayer",
       "peso": 20,
-      "nombre": "Distrito LORETO - Cuentas e Inmuebles",
+      "nombre": "Cuentas e Inmuebles",
       "short_abstract": "Datos de cuentas e inmuebles",
       "class": "",
       "seccion": "inmuebles-cuentas",
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      
       "customize_layers": {
         "Ente_Regulador_Inmuebles_pol": {
           "new_title": "Inmuebles - Polígonos",
@@ -240,11 +242,16 @@
           "new_keywords": "cañeria, 110 mm, red nueva"
         }
       }
-    },
+    },			
     {
+        "tab": {
+            "id": "Datos1",
+            "searcheable": true,
+            "content": "Distrito LORETO"
+          },
       "type": "wmslayer",
       "peso": 40,
-      "nombre": "Distrito LORETO - Red de Agua Potable",
+      "nombre": "Red de Agua Potable",
       "short_abstract": "Cañeria instalada, existente y nueva",
       "class": "",
       "seccion": "red-agua-potable-loreto",
@@ -313,20 +320,21 @@
     {
       "tab": {
           "id": "Datos2",
-          "searcheable": false,
+          "searcheable": true,
           "content": "IDE Corrientes"
         },
       "type": "wmslayer",
       "peso": 100,
       "nombre": "Geoservicios IDE Corrientes",
-      "short_abstract": "Modelos digitales de elevaciones",
+      "short_abstract": "Portal de geoservicios de la Provincia de Corrientes",
       "class": "",
       "seccion": "gctes",
       "servicio": "wms",
       "version": "1.3.0",
       "host": "https://geoportal.corrientes.gob.ar/geoserver/wms"
       
-    }		
+    }
+    
   ],
   "template": "ign-geoportal-basic"
 }
