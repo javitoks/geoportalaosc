@@ -47,7 +47,7 @@
           "servicio": "tms",
           "version": "1.0.0",
           "attribution": "Map data ©2025 Google",
-          "host": "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
+          "host": "https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
           "legendImg": "src/styles/images/here.png",
           "peso": 60,
           "zoom": {
@@ -90,7 +90,7 @@
       "seccion": "distrito-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
       
       "customize_layers": {
         "Ente_Regulador_Reparaciones": {
@@ -114,7 +114,7 @@
       "seccion": "barrios-calles-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
       
       "customize_layers": {
         "Ente_Regulador_10viviendas": {
@@ -228,7 +228,7 @@
       "seccion": "inmuebles-cuentas",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
       
       "customize_layers": {
         "Ente_Regulador_Inmuebles_pol": {
@@ -257,7 +257,7 @@
       "seccion": "red-agua-potable-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
       "customize_layers": {
         "Ente_Regulador_Canieria110": {
           "new_title": "Cañeria de 110 mm",
@@ -331,7 +331,7 @@
       "seccion": "gctes",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://geoportal.corrientes.gob.ar/geoserver/wms"
+      "host": "https://geoportal.corrientes.gob.ar/geoserver/wms"
       
     },
     {
@@ -348,7 +348,7 @@
       "seccion": "laboratorio-perfos",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "http://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
       
       "customize_layers": {
         "Ente_regulador_perforaciones_laboratorio": {
