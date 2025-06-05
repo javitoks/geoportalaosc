@@ -357,6 +357,35 @@
           "new_keywords": "perforaciones, laboratorio, relevamiento"
         }
       }
+    },
+    {
+      "tab": {
+          "id": "Datos4",
+          "searcheable": false,
+          "content": "Prueba Geoportal"
+        },
+      "type": "wmslayer",
+      "peso": 20,
+      "nombre": "Prueba Geoportal",
+      "short_abstract": "Prueba Geoportal",
+      "class": "",
+      "seccion": "prueba-geoportal",
+      "servicio": "wms",
+      "version": "1.1.0",
+      "host": "http://52.67.11.44:8080/geoserver/sistemas/wms",
+      
+      "customize_layers": {
+        "MANZANAS": {
+          "new_title": "Manzanas",
+          "new_abstract": "Manzanas",
+          "new_keywords": "manzanas"
+        },
+         "Relevamiento_Perforaciones": {
+          "new_title": "Perfos",
+          "new_abstract": "Perfos",
+          "new_keywords": "Perfos"
+        }
+      }
     }
     
   ],
