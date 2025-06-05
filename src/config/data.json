@@ -384,6 +384,16 @@
           "new_title": "Perfos",
           "new_abstract": "Perfos",
           "new_keywords": "Perfos"
+        },
+        "CHACRAS_LORETO": {
+          "new_title": "Chacras",
+          "new_abstract": "Chacras",
+          "new_keywords": "Chacras"
+        },
+        "CUENTAS_USUARIOS_LORETO": {
+          "new_title": "Usuarios",
+          "new_abstract": "Usuarios",
+          "new_keywords": "Usuarios"
         }
       }
     }
