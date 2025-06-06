@@ -76,12 +76,7 @@
       ]
     },
     {
-      
-        "tab": {
-          "id": "Datos1",
-          "searcheable": true,
-          "content": "Distrito LORETO"
-        },
+     
       "type": "wmslayer",
       "peso": 10,
       "nombre": "Distrito LORETO",
@@ -101,11 +96,7 @@
       }      
     },
     {
-        "tab": {
-          "id": "Datos1",
-          "searcheable": false,
-          "content": "Distrito LORETO"
-        },
+        
       "type": "wmslayer",
       "peso": 30,
       "nombre": "Barrios y Calles",
@@ -215,11 +206,7 @@
       }
     },
     {
-      "tab": {
-          "id": "Datos1",
-          "searcheable": false,
-          "content": "Distrito LORETO"
-        },
+      
       "type": "wmslayer",
       "peso": 20,
       "nombre": "Cuentas e Inmuebles",
@@ -244,11 +231,7 @@
       }
     },			
     {
-        "tab": {
-            "id": "Datos1",
-            "searcheable": true,
-            "content": "Distrito LORETO"
-          },
+       
       "type": "wmslayer",
       "peso": 40,
       "nombre": "Red de Agua Potable",
@@ -318,11 +301,7 @@
       }
     },
     {
-      "tab": {
-          "id": "Datos2",
-          "searcheable": true,
-          "content": "IDE Corrientes"
-        },
+      
       "type": "wmslayer",
       "peso": 100,
       "nombre": "Geoservicios IDE Corrientes",
@@ -335,11 +314,7 @@
       
     },
     {
-      "tab": {
-          "id": "Datos3",
-          "searcheable": false,
-          "content": "Laboratorio AOSC"
-        },
+      
       "type": "wmslayer",
       "peso": 20,
       "nombre": "Relevamiento Perforaciones 2024",
@@ -359,11 +334,7 @@
       }
     },
     {
-      "tab": {
-          "id": "Datos4",
-          "searcheable": false,
-          "content": "Prueba Geoportal"
-        },
+      
       "type": "wmslayer",
       "peso": 20,
       "nombre": "Prueba Geoportal",
