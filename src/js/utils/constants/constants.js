@@ -111,10 +111,18 @@ const USER_LOCALE =
     ? navigator.languages[0]
     : navigator.language;
 
+// const NUM_FORMAT = new Intl.NumberFormat().formatToParts(1000.10);
+
+// const THOUSANDS_SEPARATOR = NUM_FORMAT[1].value;
+// const DECIMAL_SEPARATOR = NUM_FORMAT[3].value;
+
+
 const NUM_FORMAT = new Intl.NumberFormat().formatToParts(1000.10);
 
-const THOUSANDS_SEPARATOR = NUM_FORMAT[1].value;
-const DECIMAL_SEPARATOR = NUM_FORMAT[3].value;
+const THOUSANDS_SEPARATOR = NUM_FORMAT[1]?.value || ",";
+const DECIMAL_SEPARATOR = NUM_FORMAT[3]?.value || ".";
+
+
 
 const PROJECTIONS = {
   22183:
