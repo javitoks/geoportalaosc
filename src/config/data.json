@@ -76,7 +76,11 @@
       ]
     },
     {
-     
+     "tab": {
+        "id": "Loreto",
+        "searcheable": true,
+        "content": "Loreto"
+      },
       "type": "wmslayer",
       "peso": 10,
       "nombre": "Distrito LORETO",
@@ -96,7 +100,11 @@
       }      
     },
     {
-        
+      "tab": {
+        "id": "Loreto",
+        "searcheable": true,
+        "content": "Loreto"
+      },
       "type": "wmslayer",
       "peso": 30,
       "nombre": "Barrios y Calles",
@@ -206,7 +214,11 @@
       }
     },
     {
-      
+      "tab": {
+        "id": "Loreto",
+        "searcheable": true,
+        "content": "Loreto"
+      },
       "type": "wmslayer",
       "peso": 20,
       "nombre": "Cuentas e Inmuebles",
@@ -215,15 +227,11 @@
       "seccion": "inmuebles-cuentas",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "http://52.67.11.44:8080/geoserver/sistemas/wms",
       
       "customize_layers": {
-        "Ente_Regulador_Inmuebles_pol": {
-          "new_title": "Inmuebles - Polígonos",
-          "new_abstract": "Inmuebles - Polígonos",
-          "new_keywords": "inmuebles, poligonos, loreto"
-        },
-        "Ente_Regulador_CuentasUsuarios": {
+        
+        "CUENTAS_USUARIOS_LORETO": {
           "new_title": "Cuentas y Usuarios",
           "new_abstract": "Cuentas y Usuarios",
           "new_keywords": "cañeria, 110 mm, red nueva"
@@ -231,7 +239,11 @@
       }
     },			
     {
-       
+       "tab": {
+        "id": "Loreto",
+        "searcheable": true,
+        "content": "Loreto"
+      },
       "type": "wmslayer",
       "peso": 40,
       "nombre": "Red de Agua Potable",
@@ -301,7 +313,11 @@
       }
     },
     {
-      
+      "tab": {
+        "id": "IDECorrientes",
+        "searcheable": true,
+        "content": "IDECorr"
+      },
       "type": "wmslayer",
       "peso": 100,
       "nombre": "Geoservicios IDE Corrientes",
@@ -314,7 +330,11 @@
       
     },
     {
-      
+      "tab": {
+        "id": "Laboratorio",
+        "searcheable": true,
+        "content": "Laboratorio"
+      },
       "type": "wmslayer",
       "peso": 20,
       "nombre": "Relevamiento Perforaciones 2024",
@@ -323,10 +343,10 @@
       "seccion": "laboratorio-perfos",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
-      
+      "host": "http://52.67.11.44:8080/geoserver/sistemas/wms",
+           
       "customize_layers": {
-        "Ente_regulador_perforaciones_laboratorio": {
+        "Relevamiento_Perforaciones": {
           "new_title": "Perforaciones Relevadas 2024",
           "new_abstract": "Perforaciones Relevadas 2024",
           "new_keywords": "perforaciones, laboratorio, relevamiento"
@@ -334,7 +354,11 @@
       }
     },
     {
-      
+      "tab": {
+        "id": "Pruebas",
+        "searcheable": true,
+        "content": "Pruebas"
+      },
       "type": "wmslayer",
       "peso": 20,
       "nombre": "Prueba Geoportal",
@@ -361,10 +385,17 @@
           "new_abstract": "Chacras",
           "new_keywords": "Chacras"
         },
-        "CUENTAS_USUARIOS_LORETO": {
+        "CUENTAS_USUARIOS_LORETO_ok": {
           "new_title": "Usuarios",
           "new_abstract": "Usuarios",
           "new_keywords": "Usuarios"
+          
+        },
+        "valvulas": {
+          "new_title": "Valvulas",
+          "new_abstract": "Valvulas",
+          "new_keywords": "valvulas, red nueva"
+          
         }
       }
     }
