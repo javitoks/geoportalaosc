@@ -89,10 +89,10 @@
       "seccion": "distrito-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://gis.aguasdecorrientes.com/wmsAC/Ente_Regulador/wms",
+      "host": "http://52.67.11.44:8080/geoserver/sistemas/wms",
       
       "customize_layers": {
-        "Ente_Regulador_Reparaciones": {
+        "Relevamiento_Perforaciones": {
           "new_title": "Reparaciones en la red",
           "new_abstract": "Reparaciones",
           "new_keywords": "reparaciones, loreto"
