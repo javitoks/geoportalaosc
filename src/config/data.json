@@ -90,12 +90,17 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "/geoserver/sistemas/wms",
-      
+
       "customize_layers": {
         "Relevamiento_Perforaciones": {
           "new_title": "Reparaciones en la red",
           "new_abstract": "Reparaciones",
           "new_keywords": "reparaciones, loreto"
+        },
+        "CUENTAS_USUARIOS_LORETO": {
+          "new_title": "Cuentas de usuarios",
+          "new_abstract": "Cuentas de usuarios",
+          "new_keywords": "cuentas, usuarios, loreto"
         }
       }      
     }
