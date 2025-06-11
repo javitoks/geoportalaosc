@@ -122,7 +122,7 @@
       "host": "/geoserver/laboratorio_aosc/wms",
 
       "customize_layers": {
-        "Relevamiento_Perforaciones": {
+        "perforaciones_modificado": {
           "new_title": "Relevamiento de Perforaciones",
           "new_abstract": "Relevamiento de Perforaciones",
           "new_keywords": "relevamiento, perforaciones, laboratorio"
