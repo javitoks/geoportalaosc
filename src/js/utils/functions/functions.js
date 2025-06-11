@@ -744,7 +744,7 @@ function loadTemplateStyleConfig(template, isDefaultTemplate) {
   try {
     const STYLE_PATH = isDefaultTemplate
       ? "src/config/default/styles/css/main.css"
-      : "src/config/styles/css/main.css";
+      : "src/styles/css/main.css";
     $("head").append(`<link rel="stylesheet" href=${STYLE_PATH}>`);
   } catch (error) {
     console.log(error);
