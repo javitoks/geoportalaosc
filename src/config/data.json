@@ -128,8 +128,7 @@
           "new_keywords": "perforaciones, red, loreto"
         },
          "Inmuebles_POL_Loreto": {
-          "new_title": "Inmuebles de Loreto",
-          "new_abstract": "Inmuebles de Loreto",  
+          "new_title": "Inmuebles de Loreto",  
           "new_abstract": "Los inmuebles de Loreto son las propiedades o terrenos que se encuentran dentro del distrito.",
           "new_keywords": "inmuebles, loreto"
         },
@@ -138,6 +137,81 @@
           "new_abstract": "Lagunas de Loreto",
           "new_keywords": "lagunas, loreto"
         }
+      }      
+    },
+    {
+     "tab": {
+        "id": "Loreto",
+        "searcheable": true,
+        "content": "Loreto"
+      },
+      "type": "wmslayer",
+      "peso": 20,
+      "nombre": "Red Agua Potable - LORETO",
+      "short_abstract": "Red de Agua Potable de Loreto",
+      "class": "",
+      "seccion": "redaguapotable-loreto",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "/geoserver/distritos_aosc/wms",
+
+      "customize_layers": {
+        "Cajasdesagues_Red_Loreto": {
+          "new_title": "Cajas de Desagües de Loreto",
+          "new_abstract": "Cajas de Desagües de Loreto",
+          "new_keywords": "cajas, desagües, loreto"
+        },
+        "Canieria110_RN_Loreto": {
+          "new_title": "Canería de 110mm - RED NUEVA",
+          "new_abstract": "Canería de 110mm de Loreto",
+          "new_keywords": "canería, 110mm, loreto"
+        },
+        "Canieria110_RV_Loreto": {
+          "new_title": "Canería de 110mm - RED VIEJA",
+          "new_abstract": "Canería de 110mm de Loreto",
+          "new_keywords": "canería, 110mm, loreto"
+        },
+        "Canieria63_RN_Loreto": {
+          "new_title": "Canería de 63mm - RED NUEVA",
+          "new_abstract": "Canería de 63mm de Loreto",
+          "new_keywords": "canería, 63mm, loreto"
+        },
+        "Canieria63_RV_Loreto": {
+          "new_title": "Canería de 63mm - RED VIEJA",
+          "new_abstract": "Canería de 63mm de Loreto",
+          "new_keywords": "canería, 63mm, loreto"
+        },
+        "Canieria75_RN_Loreto": {
+          "new_title": "Canería de 75mm - RED NUEVA",
+          "new_abstract": "Canería de 75mm de Loreto",
+          "new_keywords": "canería, 75mm, loreto"
+        },
+        "Canieria50_RV_Loreto": {
+          "new_title": "Canería de 50mm - RED VIEJA",
+          "new_abstract": "Canería de 50mm de Loreto",
+          "new_keywords": "canería, 50mm, loreto"
+        },
+        "Nudos_Red_Loreto": {
+          "new_title": "Nudos de Red de Loreto",
+          "new_abstract": "Nudos de Red de Loreto",
+          "new_keywords": "nudos, red, loreto"
+        },
+         "Redmangueras_RV_Loreto": {
+          "new_title": "Red de Mangueras - VIEJA",
+          "new_abstract": "Red de Mangueras de Loreto", 
+          "new_keywords": "red, mangueras, loreto"
+        },
+         "Tapones_Red_Loreto": {
+          "new_title": "Tapones de Red de Loreto",
+          "new_abstract": "Tapones de Red de Loreto",
+          "new_keywords": "tapones, red, loreto"
+        },
+         "Valvulas_Red_Loreto": {
+          "new_title": "Válvulas de Red de Loreto",
+          "new_abstract": "Válvulas de Red de Loreto",
+          "new_keywords": "válvulas, red, loreto"
+        }
+        
       }      
     },
     {
