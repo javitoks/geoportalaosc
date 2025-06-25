@@ -254,7 +254,7 @@
       "seccion": "distrito-ituzaingo",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "/geoserver/laboratorio_aosc/wms",
+      "host": "/geoserver/distritos_aosc/wms",
 
       "customize_layers": {
         "Relevamiento_inmuebles_Villa_Permanente": {
