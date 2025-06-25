@@ -238,6 +238,31 @@
           "new_keywords": "relevamiento, perforaciones, laboratorio"
         }
       }      
+    },
+     {
+     "tab": {
+        "id": "ituzaingo",
+        "icon": "fa fa-flask",
+        "searcheable": true,
+        "content": "Ituzaingó"
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Distrito ITUZAINGÓ",
+      "short_abstract": "Provincia de Corrientes",
+      "class": "",
+      "seccion": "distrito-ituzaingo",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "/geoserver/laboratorio_aosc/wms",
+
+      "customize_layers": {
+        "Relevamiento_inmuebles_Villa_Permanente": {
+          "new_title": "Villa Permanente (207 Viv)",
+          "new_abstract": "Villa Permanente (207 Viv)",
+          "new_keywords": "relevamiento, villa, permanente, ituzaingó"
+        }
+      }      
     }
     
   ],
