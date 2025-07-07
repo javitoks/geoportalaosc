@@ -1,3 +1,20 @@
+// Función para obtener una cookie por su nombre
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+// *** Lógica de verificación de cookies al inicio ***
+const isLogged = getCookie('isLogged');
+
+if (isLogged === 'false' || isLogged === null) {
+  // Redirigir a la página de login si no está logueado o la cookie no existe
+  window.location.href = 'login.html';
+}
+
+// Si isLogged es 'true', permite que el script continúe con la inicialización
 var baseLayers = {};
 var baseLayersInfo = {};
 var selectedBasemap = null;
@@ -22,7 +39,10 @@ const impresorItemCapaBase = new ImpresorItemCapaBaseHTML(),
 
       if (Object.keys(app.profiles).length === 0) {
         app["profiles"] = {
-          default: { data: [], modules: [] },
+          default: {
+            data: [],
+            modules: []
+          },
         };
         app["profile"] = "default";
       }
@@ -76,7 +96,7 @@ const impresorItemCapaBase = new ImpresorItemCapaBaseHTML(),
             case "login":
               await login.load();
               break;
-            // Intialize here more modules defined in profile (config JSON)
+              // Intialize here more modules defined in profile (config JSON)
             default:
               break;
           }
@@ -200,9 +220,9 @@ const impresorItemCapaBase = new ImpresorItemCapaBaseHTML(),
               null
             );
             basemap.setLegendImg(item.capas[key2].legendImg); // basemap thumbnail, not a legend
-            item.capas[key2].legend
-              ? basemap.setLegend(item.capas[key2].legend)
-              : basemap.setLegend(null); // basemap legend
+            item.capas[key2].legend ?
+              basemap.setLegend(item.capas[key2].legend) :
+              basemap.setLegend(null); // basemap legend
             if (item.capas[key2].peso) {
               basemap.setPeso(item.capas[key2].peso);
             }
@@ -244,11 +264,12 @@ const impresorItemCapaBase = new ImpresorItemCapaBaseHTML(),
           let item = element,
             tab = new Tab(item.tab),
             customizedLayers =
-              item.customize_layers == undefined ? "" : item.customize_layers,
-            featureInfoFormat =
-              item.feature_info_format == undefined
-                ? "application/json"
-                : item.feature_info_format,
+            item.customize_layers == undefined ? "" : item.customize_layers;
+          console.log("Capas personalizadas para:", item.nombre, customizedLayers);
+          featureInfoFormat =
+            item.feature_info_format == undefined ?
+            "application/json" :
+            item.feature_info_format,
             impresorGroupTemp = impresorGroup;
           let profile = app.profiles[app.profile],
             matchItemProfile;
@@ -261,7 +282,16 @@ const impresorItemCapaBase = new ImpresorItemCapaBaseHTML(),
             );
           }
 
+
+
           if (matchItemProfile != undefined) {
+            let rolActual = getCookie("rol");
+            if (item.roles && !item.roles.includes(rolActual)) {
+              return;
+            } else {
+              console.log(getCookie("rol") + " " + item.roles)
+            }
+
             if (item.tab == undefined) {
               item.tab = "";
             }
@@ -433,7 +463,9 @@ let getGeoserverCounter = 0,
 $.getJSON("./src/config/data.json", async function (data) {
   $.getJSON("./src/config/preferences.json", async function (preferences) {
     gestorMenu.setLegendImgPath("src/config/styles/images/legends/");
-    await loadTemplate({ ...data, ...preferences }, false);
+    await loadTemplate({ ...data,
+      ...preferences
+    }, false);
   }).fail(async function (jqxhr, textStatus, error) {
     console.warn("Template not found. Default configuration will be loaded.");
     await loadDefaultJson();
@@ -451,7 +483,9 @@ async function loadDefaultJson() {
         gestorMenu.setLegendImgPath(
           "src/config/default/styles/images/legends/"
         );
-        await loadTemplate({ ...data, ...preferences }, true);
+        await loadTemplate({ ...data,
+          ...preferences
+        }, true);
       }
     );
   });
@@ -522,7 +556,7 @@ async function loadTemplate(data, isDefaultTemplate) {
 
     //Load dynamic mapa.js
     app.template_id = template;
-    $.getScript(`src/js/map/map.js`, (res) => { });
+    $.getScript(`src/js/map/map.js`, (res) => {});
 
     template = "templates/" + template + "/main.html";
 
@@ -572,8 +606,7 @@ async function loadTemplate(data, isDefaultTemplate) {
 
         //setProperStyleToCtrlBtns();
 
-        /*      
-                let bm = document.getElementById("collapseBaseMapLayers");
+        /* let bm = document.getElementById("collapseBaseMapLayers");
                 bm.addEventListener("dblclick", function () {
                   event.stopPropagation();
                 });
@@ -595,9 +628,6 @@ async function loadTemplate(data, isDefaultTemplate) {
       $.getScript("src/js/components/cookies/cookies.js").done(() => {
         $.getScript("src/js/components/login/loginatic.js").done(function () {
           loginatic = new loginatic();
-          loginatic._addLoginWrapper();
-          loginatic.init();
-          loginatic.check();
         });
       });
     }

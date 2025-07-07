@@ -175,7 +175,7 @@ class AboutUs {
 
     let linkRepo = document.getElementById("link-to-repo");
     linkRepo.addEventListener('click', () => {
-      this.goTo("https://github.com/ign-argentina/argenmap");
+      this.goTo("https://github.com/javitoks/geoportalaosc");
     });
   }
 

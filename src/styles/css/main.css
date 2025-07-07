@@ -152,7 +152,7 @@ a, a:hover, a:focus {
 .brand {
   height: 48px;
   background-size: cover;
-  opacity: .7
+  opacity: .6
 }
 .brand:hover {
   opacity: 1
@@ -196,6 +196,29 @@ a, a:hover, a:focus {
 /*******************************
 UI Components class
 *******************************/
+.ui-btn-nomargin{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: var(--btn-border-radius);
+    background-color: var(--btn-background-color);
+    padding: 6px 12px;
+    font-size: var(--btn-ftn-size);
+    font-weight: 700;
+    cursor: pointer;
+    margin: 2px;
+    border: 2px solid;
+}
+.ui-btn-nomargin:hover {
+  color: var(--btn-hover-color);
+}
 .ui-btn {
   width: 100%;
   display: flex;
@@ -1140,7 +1163,25 @@ New navbar
 #logo-help.navbar-new-content {
   display: flex;
   align-items: center;
+  text-align: center;
 }
+
+#logo-help {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#logoutDiv {
+  margin-left: 0 !important;
+  float: none !important;
+  position: static !important;
+}
+
+.margin-span{
+  margin-left: 10px;
+}
+
 .navbar-button {
   margin-right: -5px;
 }
