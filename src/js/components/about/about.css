@@ -21,8 +21,8 @@
 }
 .about-logo {
     display: flex;
-    width: 300px;
-    margin-left: 25%;
+    width: 200px;
+    margin-left: 40%;
 }
 /*.about-exit {}*/
 .about-main-section {
@@ -175,7 +175,7 @@
         right: 50%;
     }
     .about-logo {
-        width: 260px;
+        width: 160px;
         margin-left: 15%;
     }
     .tab {

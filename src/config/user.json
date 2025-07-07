@@ -6,5 +6,21 @@
     "lat_4326": -27.7667,
     "lon_4326": -57.2667,
     "zoom": 14
+  },
+  {
+    "name": "tecnica",
+    "rol": "tecnica",    
+    "clave": "$2y$10$YEecmhCBn.BOD5KtqwBRf.MHjRcDHVa7izNc8I5hjN2X8OCWct0.G",
+    "lat_4326": -27.7667,
+    "lon_4326": -57.2667,
+    "zoom": 14
+  },
+  {
+    "name": "coordinacion",
+    "rol": "coordinacion",    
+    "clave": "$2y$10$nCKWZ8I3zAEsqR1DeqboWuHUZ5Y5D9NyDJmzc7G55doNQvRT849BS", 
+    "lat_4326": -27.7667,
+    "lon_4326": -57.2667,
+    "zoom": 14
   }
 ]

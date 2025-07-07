@@ -75,8 +75,9 @@
         }
       ]
     },
+
     {
-     "tab": {
+    "tab": {
         "id": "Loreto",
         "searcheable": true,
         "content": "Loreto"
@@ -89,7 +90,8 @@
       "seccion": "distrito-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "/geoserver/distritos_aosc/wms",
+      "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
+      "roles": ["admin", "tecnica"],
 
       "customize_layers": {
         "Barrios_Loreto": {
@@ -127,20 +129,21 @@
           "new_abstract": "Perforaciones de Red de Loreto",
           "new_keywords": "perforaciones, red, loreto"
         },
-         "Inmuebles_POL_Loreto": {
+        "Inmuebles_POL_Loreto": {
           "new_title": "Inmuebles de Loreto",  
           "new_abstract": "Los inmuebles de Loreto son las propiedades o terrenos que se encuentran dentro del distrito.",
           "new_keywords": "inmuebles, loreto"
         },
-         "Lagunas_Loreto": {
+        "Lagunas_Loreto": {
           "new_title": "Lagunas de Loreto",
           "new_abstract": "Lagunas de Loreto",
           "new_keywords": "lagunas, loreto"
         }
       }      
     },
+
     {
-     "tab": {
+      "tab": {
         "id": "Loreto",
         "searcheable": true,
         "content": "Loreto"
@@ -153,7 +156,8 @@
       "seccion": "redaguapotable-loreto",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "/geoserver/distritos_aosc/wms",
+      "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
+      "roles": ["admin", "coordinacion"],
 
       "customize_layers": {
         "Cajasdesagues_Red_Loreto": {
@@ -196,17 +200,17 @@
           "new_abstract": "Nudos de Red de Loreto",
           "new_keywords": "nudos, red, loreto"
         },
-         "Redmangueras_RV_Loreto": {
+        "Redmangueras_RV_Loreto": {
           "new_title": "Red de Mangueras - VIEJA",
           "new_abstract": "Red de Mangueras de Loreto", 
           "new_keywords": "red, mangueras, loreto"
         },
-         "Tapones_Red_Loreto": {
+        "Tapones_Red_Loreto": {
           "new_title": "Tapones de Red de Loreto",
           "new_abstract": "Tapones de Red de Loreto",
           "new_keywords": "tapones, red, loreto"
         },
-         "Valvulas_Red_Loreto": {
+        "Valvulas_Red_Loreto": {
           "new_title": "Válvulas de Red de Loreto",
           "new_abstract": "Válvulas de Red de Loreto",
           "new_keywords": "válvulas, red, loreto"
@@ -215,7 +219,7 @@
       }      
     },
     {
-     "tab": {
+      "tab": {
         "id": "laboratorio",
         "icon": "fa fa-flask",
         "searcheable": true,
@@ -229,7 +233,8 @@
       "seccion": "lab-aosc",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "/geoserver/laboratorio_aosc/wms",
+      "host": "http://52.67.11.44/geoserver/laboratorio_aosc/wms",
+      "roles": ["admin", "coordinacion"],
 
       "customize_layers": {
         "perforaciones_modificado": {
@@ -239,8 +244,8 @@
         }
       }      
     },
-     {
-     "tab": {
+    {
+      "tab": {
         "id": "ituzaingo",
         "icon": "fa fa-flask",
         "searcheable": true,
@@ -254,7 +259,8 @@
       "seccion": "distrito-ituzaingo",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "/geoserver/distritos_aosc/wms",
+      "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
+      "roles": ["admin", "tecnica"],
 
       "customize_layers": {
         "Relevamiento_inmuebles_Villa_Permanente": {

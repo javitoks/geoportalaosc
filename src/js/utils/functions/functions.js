@@ -1413,11 +1413,10 @@ function loadDeveloperLogo() {
             link.title = STRINGS.about;
             link.style.cursor = "pointer";
             let img = L.DomUtil.create("img");
-            img.src = "src/styles/images/noimage.webp";
-            img.alt = "Argenmap logo";
+            img.src = "src/styles/images/gota_aosc.png";
+            img.alt = "AOSC logo";
             img.classList = "brand"
             img.style = devLogoStyle;
-            img.style.backgroundImage = `url('${devLogoUrl}')`;
             link.appendChild(img);
 
             link.addEventListener('click', function () {
