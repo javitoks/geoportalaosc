@@ -27,9 +27,9 @@
             color: white;
         }
         .login .input-group {
-            width: 200px;
-            margin: 0 auto;
-            margin-top: 30px;
+            width: 100%; /* ✅ Ocupa todo el ancho disponible del contenedor padre */
+            margin: 30px auto 0 auto; /* Solo margen arriba y centrado */
+            padding: 0px 150px;
             border-radius: 40px;
             border-color: white;
         }
@@ -68,75 +68,155 @@
             justify-content: center;
             min-height: 100vh; /* Asegura que ocupe toda la altura de la vista */
         }
-        .white-modal {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative;
+        #advice-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .white-modal {
+            background-color: #a3daee;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            text-align: left;
+            p{
+                color: #222;    
+            }
+        }
+
         .closer {
             position: absolute;
             top: 10px;
-            right: 10px;
-            font-size: 1.2em;
+            right: 15px;
+            font-size: 20px;
             color: #333;
-            cursor: pointer;
+            text-decoration: none;
+        }
+        .login-container{
+            max-width: 800px; /* o el valor que desees */
+            margin: 0 auto;    /* centra horizontalmente */
+        }
+        #loginErrorMessage {
+            background-color: #ffdddd;
+            color: #a00;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div id="login-wrapper" class="justify-content-center">
+
         <div class="container-fluid col-12 col-xs-12 col-sm-6 col-md-5 mt-5 text-center center-flex">
+
             <div class="login">
-                <img src="src/styles/images/aosc.png" width="30%" alt="Logo AOSC">
-                <h3>Acceso al Visor de mapas</h3>
+                <div class="login-container">
+                    <img src="src/styles/images/aosc.png" width="30%" alt="Logo AOSC">
+                    <p id="loginErrorMessage" style="color: red; display: none; margin-top: 10px;"></p>
+                    <h3>Acceso al Visor de mapas</h3>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2">
-                        <i class="fas fa-user"></i>
-                    </span>
-                    <input type="text" id="input-user" class="form-control ui-input-text" placeholder="Nombre de usuario" aria-describedby="basic-addon2" required>
-                </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input type="text" id="input-user" class="form-control ui-input-text" placeholder="Nombre de usuario" aria-describedby="basic-addon2" required>
+                    </div>
 
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    <input type="password" id="input-pwd" class="form-control ui-input-text" placeholder="Clave de Acceso" aria-describedby="basic-addon1" required>
-                </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password" id="input-pwd" class="form-control ui-input-text" placeholder="Clave de Acceso" aria-describedby="basic-addon1" required>
+                        <span class="input-group-addon" onclick="togglePassword()" style="cursor: pointer; border-radius: 0px 5px 5px 0px;">
+                            <i id="togglePwdIcon" class="fas fa-eye"></i>
+                        </span>
+                    </div>
 
-                <div class="checkbox">
-                    <label><input type="checkbox" id="inp-recuerdame" name="recuerdame"> Recuérdame</label>
-                </div>
-                
-                <p id="loginErrorMessage" style="color: red; display: none; margin-top: 10px;"></p>
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="inp-recuerdame" name="recuerdame"> Recuérdame</label>
+                    </div>
 
-                <button id="loginButton" class="ui-btn ui-btn-confirm">Ingresar</button>
+                    <button id="loginButton" class="ui-btn ui-btn-confirm">Ingresar</button>
 
-                <hr>
-                <button id="showAdviceButton" class="ui-btn ui-btn-primary filled">No poseo clave de acceso</button>
-            </div>
-        </div>
-
-        <div id="advice-wrapper" class="justify-content-center" style="display: none;">
-            <div class="container-fluid col-12 col-xs-12 col-sm-6 col-md-6 mt-5 text-center" style="display: flex;align-items: center;">
-                <div class="white-modal" style="margin-top:150px;">
-                    <a href="javascript:void(0)" class="closer" id="closeAdviceButton">
-                        <i class="fa fa-times"></i>
-                    </a>
-                    <p style="margin-top:30px;">Su municipio ya posee clave asignada, la misma ha sido enviada al mail de contacto informado a la Subsecretaría de Relaciones Municipales del Ministerio del Interior.<br> Por favor verifique con las autoridades de su Gobierno Local.</p>
-                    <p>En caso de no poder solucionarlo, envíe un mail a: <a href="mailto:datosmunicipales@mininterior.gob.ar" target="_blank">datosmunicipales@mininterior.gob.ar</a><br> indicando nombre del Gobierno Local, provincia, su nombre y apellido, cargo y teléfono de contacto oficial</p>
+                    <hr>
+                    <button id="showAdviceButton" onclick="document.getElementById('advice-wrapper').style.display = 'flex';" class="ui-btn ui-btn-primary filled">Acceso Publico</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div id="advice-wrapper" style="display: none;">
+        <div class="modal-backdrop">
+            <div class="white-modal">
+                <a href="javascript:void(0)" onclick="document.getElementById('advice-wrapper').style.display = 'none';" class="closer" id="closeAdviceButton">
+                    <i class="fa fa-times"></i>
+                </a>
+                <p style="margin-top:30px;">
+                    Su municipio ya posee clave asignada, la misma ha sido enviada al mail de contacto informado a la Subsecretaría de Relaciones Municipales del Ministerio del Interior.
+                    Por favor verifique con las autoridades de su Gobierno Local.
+                </p>
+                <p>
+                    En caso de no poder solucionarlo, envíe un mail a:
+                    <a href="mailto:datosmunicipales@mininterior.gob.ar" target="_blank">datosmunicipales@mininterior.gob.ar</a>
+                    indicando nombre del Gobierno Local, provincia, su nombre y apellido, cargo y teléfono de contacto oficial
+                </p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        document.getElementById("loginButton").addEventListener("click", function () {
-            console.log("funciona el login button");
+        
+        function handleLogin(event) {
+            if (event) event.preventDefault();
             login.process();
+        }
+
+        // Click en el botón
+        document.getElementById("loginButton").addEventListener("click", handleLogin);
+
+        // Presionar Enter en el input de contraseña
+        document.getElementById("input-pwd").addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                handleLogin(e);
+            }
         });
-    </script>
+
+    function togglePassword() {
+        const pwdInput = document.getElementById("input-pwd");
+        const icon = document.getElementById("togglePwdIcon");
+
+        if (pwdInput.type === "password") {
+            pwdInput.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            pwdInput.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>
 </body>
 </html>
