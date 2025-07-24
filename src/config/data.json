@@ -42,12 +42,12 @@
           }
         },
         {
-          "titulo": "Google Satellite",
-          "nombre": "google_satellite",
+          "titulo": "Google Hybrid",
+          "nombre": "google_hybrid",
           "servicio": "tms",
           "version": "1.0.0",
           "attribution": "Map data ©2025 Google",
-          "host": "https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
+          "host": "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
           "legendImg": "src/styles/images/here.png",
           "peso": 60,
           "zoom": {
@@ -264,8 +264,8 @@
 
       "customize_layers": {
         "Relevamiento_inmuebles_Villa_Permanente": {
-          "new_title": "Villa Permanente (207 Viv)",
-          "new_abstract": "Villa Permanente (207 Viv)",
+          "new_title": "Cuentas de Usuarios - Ituzaingo ",
+          "new_abstract": "Cuentas de Usuarios - Ituzaingo",
           "new_keywords": "relevamiento, villa, permanente, ituzaingó"
         }
       }      
