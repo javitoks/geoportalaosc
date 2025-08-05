@@ -214,6 +214,11 @@
           "new_title": "Válvulas de Red de Loreto",
           "new_abstract": "Válvulas de Red de Loreto",
           "new_keywords": "válvulas, red, loreto"
+        },
+         "test": {
+          "new_title": "test",
+          "new_abstract": "test",
+          "new_keywords": "test"
         }
         
       }      
