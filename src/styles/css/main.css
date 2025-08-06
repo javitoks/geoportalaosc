@@ -1461,3 +1461,14 @@ Special effects
 .individualFeature > ul > li > span {
   float: right;
 } */
+
+@media (max-width: 600px) {
+  #logo-help .xxsmall-hide a {
+    font-size: 0; /* Oculta el texto */
+  }
+
+  #logo-help .xxsmall-hide a .fa {
+    font-size: 1.2rem; /* Asegura que el ícono siga visible y de tamaño correcto */
+    margin: 0;
+  }
+}

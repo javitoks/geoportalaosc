@@ -91,7 +91,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
-      "roles": ["admin", "tecnica"],
+      "roles": ["admin", "loreto"],
 
       "customize_layers": {
         "Barrios_Loreto": {
@@ -239,7 +239,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "http://52.67.11.44/geoserver/laboratorio_aosc/wms",
-      "roles": ["admin", "coordinacion"],
+      "roles": ["admin", "laboratorio"],
 
       "customize_layers": {
         "perforaciones_modificado": {
@@ -265,7 +265,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
-      "roles": ["admin", "tecnica"],
+      "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
         "Relevamiento_inmuebles_Villa_Permanente": {
