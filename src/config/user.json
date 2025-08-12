@@ -1,7 +1,7 @@
 [
   {
     "name": "admin",
-    "rol": "administrador",    
+    "rol": "admin",    
     "clave": "$2b$10$EZ1vl2RIyzG2NTJnC/x7MuDd2Gkiw5YrUnJqExP9IxKV0yP.vHNwu", 
     "lat_4326": -27.7667,
     "lon_4326": -57.2667,
