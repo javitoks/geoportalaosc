@@ -2,7 +2,7 @@
   {
     "name": "admin",
     "rol": "admin",    
-    "clave": "$2b$10$8eDthUAhzpC8F/K26fTnQe2UGueN477d5kTC1EEm8ik7ec1cC3bmi", 
+    "clave": "$2b$10$EZ1vl2RIyzG2NTJnC/x7MuDd2Gkiw5YrUnJqExP9IxKV0yP.vHNwu", 
     "lat_4326": -27.7667,
     "lon_4326": -57.2667,
     "zoom": 14
@@ -19,6 +19,22 @@
     "name": "coordinacion",
     "rol": "coordinacion",    
     "clave": "$2y$10$nCKWZ8I3zAEsqR1DeqboWuHUZ5Y5D9NyDJmzc7G55doNQvRT849BS", 
+    "lat_4326": -27.7667,
+    "lon_4326": -57.2667,
+    "zoom": 14
+  },
+  {
+    "name": "loreto",
+    "rol": "loreto",    
+    "clave": "$2b$10$sCe4A/QcvLcRwamHElj1kOSx5tOtHYe/GTrijhUUU6Y.Lp5PQ92u6", 
+    "lat_4326": -27.7667,
+    "lon_4326": -57.2667,
+    "zoom": 14
+  },
+  {
+    "name": "ituzaingo",
+    "rol": "ituzaingo",    
+    "clave": "$2b$10$iTo/N/Ogldjz9KdEqcz/4.S5Dy1euqv56DUROTawFWY7gNs9Pf1a.", 
     "lat_4326": -27.7667,
     "lon_4326": -57.2667,
     "zoom": 14
