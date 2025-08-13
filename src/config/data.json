@@ -226,7 +226,6 @@
     {
       "tab": {
         "id": "Tecnica",
-        "icon": "fa fa-flask",
         "searcheable": true,
         "content": "Area Técnica"
       },
@@ -311,10 +310,27 @@
       "version": "1.3.0",
       "host": "https://imagenes.ign.gob.ar/geoserver/coberturas_del_suelo/wms",
       "roles": ["admin", "ituzaingo"]         
-    }
-
-
-    
+    }, 
+    {
+      "tab": {
+        "id": "idecorr",
+        "icon": "fa fa-flask",
+        "searcheable": true,
+        "content": "Geoservicios IDECorr"
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Geoservicios IDECorr",
+      "short_abstract": "Geoservicios IDECorr",
+      "class": "",
+      "seccion": "geoservicios-idecorr",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://geoportal.corrientes.gob.ar/geoserver/wms",
+      "roles": ["admin", "ituzaingo"]         
+    }   
   ],
   "template": "ign-geoportal-basic"
 }
+
+
