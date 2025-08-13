@@ -274,6 +274,25 @@
           "new_keywords": "relevamiento, ituzaingó"
         }
       }         
+    },
+
+    {
+      "tab": {
+        "id": "IGN",
+        "icon": "fa fa-flask",
+        "searcheable": true,
+        "content": "Geoservicios IGN"
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Geoservicios IGN",
+      "short_abstract": "Geoservicios IGN",
+      "class": "",
+      "seccion": "geoservicios-ign",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "https://wms.ign.gob.ar/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities",
+      "roles": ["admin", "ituzaingo"]         
     }
     
   ],
