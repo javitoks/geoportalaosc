@@ -291,7 +291,7 @@
       "seccion": "geoservicios-ign",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://wms.ign.gob.ar/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "host": "https://wms.ign.gob.ar/geoserver/wms",
       "roles": ["admin", "ituzaingo"]         
     },
 
@@ -310,7 +310,7 @@
       "seccion": "geoservicios-ign-vec",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://imagenes.ign.gob.ar/geoserver/coberturas_del_suelo/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "host": "https://imagenes.ign.gob.ar/geoserver/coberturas_del_suelo/wms",
       "roles": ["admin", "ituzaingo"]         
     }
 
