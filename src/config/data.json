@@ -297,7 +297,7 @@
 
      {
       "tab": {
-        "id": "IGN",
+        "id": "IGN-vec",
         "icon": "fa fa-flask",
         "searcheable": true,
         "content": "Geoservicios IGN"
