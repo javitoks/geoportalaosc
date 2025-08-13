@@ -285,15 +285,36 @@
       },
       "type": "wmslayer",
       "peso": 10,
-      "nombre": "Geoservicios IGN",
+      "nombre": "IGN",
+      "short_abstract": "Geoservicios IGN",
+      "class": "",
+      "seccion": "geoservicios-ign",
+      "servicio": "wfs",
+      "version": "1.3.0",
+      "host": "https://wms.ign.gob.ar/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities",
+      "roles": ["admin", "ituzaingo"]         
+    },
+
+     {
+      "tab": {
+        "id": "IGN",
+        "icon": "fa fa-flask",
+        "searcheable": true,
+        "content": "Geoservicios IGN"
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "IGN - Vectorial",
       "short_abstract": "Geoservicios IGN",
       "class": "",
       "seccion": "geoservicios-ign",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://wms.ign.gob.ar/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities",
+      "host": "https://imagenes.ign.gob.ar/geoserver/coberturas_del_suelo/ows?service=wms&version=1.3.0&request=GetCapabilities",
       "roles": ["admin", "ituzaingo"]         
     }
+
+
     
   ],
   "template": "ign-geoportal-basic"
