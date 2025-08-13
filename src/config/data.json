@@ -268,16 +268,10 @@
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
-        "Relevamiento_inmuebles_Villa_Permanente": {
-          "new_title": "Cuentas de Usuarios - EBY + 1000 viv. ",
+        "cuentas_usuarios_ituzaingo_2025": {
+          "new_title": "Cuentas de Usuarios - Ituzaingo AOSC ",
           "new_abstract": "Cuentas de Usuarios - Ituzaingo",
-          "new_keywords": "relevamiento, villa, permanente, ituzaingó"
-        },
-
-        "Relevamiento_Inmuebles_231viv": {
-          "new_title": "Cuentas de Usuarios - 231 viv. ",
-          "new_abstract": "Cuentas de Usuarios - Ituzaingo",
-          "new_keywords": "relevamiento, 231 viviendas, ituzaingó"
+          "new_keywords": "relevamiento, ituzaingó"
         }
       }         
     }
