@@ -78,9 +78,9 @@
 
     {
     "tab": {
-        "id": "Loreto",
+        "id": "Explotacion",
         "searcheable": true,
-        "content": "Loreto"
+        "content": "Explotación"
       },
       "type": "wmslayer",
       "peso": 10,
@@ -144,9 +144,9 @@
 
     {
       "tab": {
-        "id": "Loreto",
+        "id": "Explotacion",
         "searcheable": true,
-        "content": "Loreto"
+        "content": "Explotación"
       },
       "type": "wmslayer",
       "peso": 20,
@@ -225,10 +225,10 @@
     },
     {
       "tab": {
-        "id": "laboratorio",
+        "id": "Area Tecnica",
         "icon": "fa fa-flask",
         "searcheable": true,
-        "content": "Laboratorio"
+        "content": "Area Técnica"
       },
       "type": "wmslayer",
       "peso": 10,
@@ -251,10 +251,9 @@
     },
     {
       "tab": {
-        "id": "ituzaingo",
-        "icon": "fa fa-flask",
+        "id": "Explotacion",
         "searcheable": true,
-        "content": "Ituzaingó"
+        "content": "Explotación"
       },
       "type": "wmslayer",
       "peso": 10,
