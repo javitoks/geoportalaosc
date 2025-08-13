@@ -225,7 +225,7 @@
     },
     {
       "tab": {
-        "id": "Area Tecnica",
+        "id": "Tecnica",
         "icon": "fa fa-flask",
         "searcheable": true,
         "content": "Area Técnica"
