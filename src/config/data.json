@@ -266,7 +266,7 @@
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
-        "cuentas_usuarios_ituzaingo_2025": {
+        "Usuarios_Distrito_Ituzaingo": {
           "new_title": "Cuentas de Usuarios - Ituzaingo AOSC ",
           "new_abstract": "Cuentas de Usuarios - Ituzaingo",
           "new_keywords": "relevamiento, ituzaingó"
