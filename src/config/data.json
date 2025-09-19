@@ -275,9 +275,9 @@
     },
     {
       "tab": {
-        "id": "Explotacion",
+        "id": "COVESA",
         "searcheable": true,
-        "content": "Explotación"
+        "content": "Covesa"
       },
       "type": "wmslayer",
       "peso": 10,
