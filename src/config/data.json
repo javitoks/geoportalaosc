@@ -307,22 +307,27 @@
       },
       "type": "wmslayer",
       "peso": 10,
-      "nombre": "Distrito ITUZAINGÓ",
+      "nombre": "Red Cloacas - Ituzaingó",
       "short_abstract": "Provincia de Corrientes",
       "class": "",
-      "seccion": "distrito-ituzaingo",
+      "seccion": "cloacas-ituzaingo",
       "servicio": "wms",
       "version": "1.3.0",
       "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
-        "Red_Cloaca_Ituzaingo": {
+        "conductos_cloaca_itgo": {
           "new_title": "Red de Cloacas - Ituzaingo",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
-        }
-      }         
+        },
+        "bocareg_cloaca_itgo": {
+          "new_title": "Red de Cloacas - Ituzaingo",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+      }  
+    }       
     },
 
     {
