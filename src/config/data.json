@@ -270,7 +270,27 @@
           "new_title": "Cuentas de Usuarios - Ituzaingo AOSC ",
           "new_abstract": "Cuentas de Usuarios - Ituzaingo",
           "new_keywords": "relevamiento, ituzaingó"
-        },
+        }
+      }         
+    },
+    {
+      "tab": {
+        "id": "Explotacion",
+        "searcheable": true,
+        "content": "Explotación"
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Distrito ITUZAINGÓ",
+      "short_abstract": "Provincia de Corrientes",
+      "class": "",
+      "seccion": "distrito-ituzaingo",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
+      "roles": ["admin", "ituzaingo", "covesa"],
+
+      "customize_layers": {
         "Barrios_ituzaingo": {
           "new_title": "Barrios de Ituzaingó",
           "new_abstract": "Barrios de Ituzaingó",

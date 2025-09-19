@@ -8,6 +8,14 @@
     "zoom": 14
   },
   {
+    "name": "covesa-ituzaingo",
+    "rol": "covesa",    
+    "clave": "$2b$10$6I4/Ew60qAleGZuppxOD7OYgiZPYgiuJihH8ZhHGusmJR34XyNFrm", 
+    "lat_4326": -27.7667,
+    "lon_4326": -57.2667,
+    "zoom": 14
+  },
+  {
     "name": "tecnica",
     "rol": "tecnica",    
     "clave": "$2y$10$YEecmhCBn.BOD5KtqwBRf.MHjRcDHVa7izNc8I5hjN2X8OCWct0.G",
