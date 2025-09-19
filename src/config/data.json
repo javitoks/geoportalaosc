@@ -263,7 +263,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
-      "roles": ["admin", "ituzaingo"],
+      "roles": ["admin", "ituzaingo","covesa"],
 
       "customize_layers": {
         "Usuarios_Distrito_Ituzaingo": {
@@ -314,7 +314,7 @@
       "servicio": "wms",
       "version": "1.3.0",
       "host": "http://52.67.11.44/geoserver/distritos_aosc/wms",
-      "roles": ["admin", "ituzaingo"],
+      "roles": ["admin", "ituzaingo", "covesa"],
 
       "customize_layers": {
         "Red_Cloaca_Ituzaingo": {
