@@ -318,12 +318,12 @@
 
       "customize_layers": {
         "Caneria_Cloaca_Ituzaingo": {
-          "new_title": "Red de Cloacas - Ituzaingo",
+          "new_title": "Cañeria - Ituzaingo",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
         "nodos_cloaca_ituzaingo": {
-          "new_title": "Red de Cloacas - Ituzaingo",
+          "new_title": "Nodos - Ituzaingo",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
       }  
