@@ -317,12 +317,12 @@
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
-        "conductos_cloaca_itgo": {
+        "Caneria_Cloaca_Ituzaingo": {
           "new_title": "Red de Cloacas - Ituzaingo",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
-        "bocareg_cloaca_itgo": {
+        "nodos_cloaca_ituzaingo": {
           "new_title": "Red de Cloacas - Ituzaingo",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
