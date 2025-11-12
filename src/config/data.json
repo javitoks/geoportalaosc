@@ -317,13 +317,48 @@
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
-        "Caneria_Cloaca_Ituzaingo": {
-          "new_title": "Cañeria - Ituzaingo",
+         "CaneriaDN160_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN160",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
-        "nodos_cloaca_ituzaingo": {
-          "new_title": "Nodos - Ituzaingo",
+        "CaneriaDN200_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN200",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+        },
+        "CaneriaDN250_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN250",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+        },
+        "CaneriaDN300_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN300",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+        },
+        "CaneriaDN350_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN350",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+        },
+        "CaneriaDN400_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN400",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+        },
+        "Estacion_Elevadora": {
+          "new_title": "Estación Elevadora",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+      },
+      "camarareg_cloaca_ituzaingo": {
+          "new_title": "Cámaras de Registro",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+      },
+        "bocasreg_cloaca_ituzaingo": {
+          "new_title": "Bocas de Registro",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
       }  
