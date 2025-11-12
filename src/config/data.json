@@ -317,6 +317,11 @@
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
+        "CaneriaDN150_Cloaca_Ituzaingo": {
+          "new_title": "Cañería DN150",
+          "new_abstract": "Red de Cloacas - Ituzaingo",
+          "new_keywords": "cloacas, ituzaingó"
+        },
          "CaneriaDN160_Cloaca_Ituzaingo": {
           "new_title": "Cañería DN160",
           "new_abstract": "Red de Cloacas - Ituzaingo",
