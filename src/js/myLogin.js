@@ -1,46 +1,26 @@
-window.login = (function () {
+login = (function () {
   const bcrypt = window.dcodeIO.bcrypt;
-  const ERROR_VISIBILITY_MS = 5000;
-
-  let errorTimer;
-
-  function showError(message) {
-    const errorMessage = document.getElementById("loginErrorMessage");
-    errorMessage.textContent = message;
-    errorMessage.hidden = false;
-
-    clearTimeout(errorTimer);
-    errorTimer = setTimeout(() => {
-      errorMessage.hidden = true;
-    }, ERROR_VISIBILITY_MS);
-  }
-
-  function clearError() {
-    const errorMessage = document.getElementById("loginErrorMessage");
-    clearTimeout(errorTimer);
-    errorMessage.textContent = "";
-    errorMessage.hidden = true;
-  }
-
-  function setLoading(isLoading) {
-    const loginButton = document.getElementById("loginButton");
-    loginButton.disabled = isLoading;
-    loginButton.textContent = isLoading ? "Validando..." : "Ingresar";
-  }
 
   async function process() {
+    const errorMessage = document.getElementById("loginErrorMessage");
+
     const username = document.getElementById("input-user").value.trim();
     const password = document.getElementById("input-pwd").value.trim();
     const recuerdame = document.getElementById("inp-recuerdame").checked;
 
-    clearError();
+    // Limpiar error previo
+    errorMessage.textContent = "";
+    errorMessage.style.display = "none";
 
     if (!username || !password) {
-      showError("Campo vacío, ingrese su usuario y contraseña.");
+      errorMessage.textContent =
+        "Campo vacío, ingrese su usuario y contraseña.";
+      errorMessage.style.display = "block";
+      setTimeout(() => {
+        errorMessage.style.display = "none";
+      }, 5000);
       return;
     }
-
-    setLoading(true);
 
     try {
       const res = await fetch("src/config/user.json");
@@ -49,13 +29,21 @@ window.login = (function () {
       const user = users.find((u) => u.name === username);
 
       if (!user) {
-        showError("Usuario no encontrado.");
+        errorMessage.textContent = "Usuario no encontrado.";
+        errorMessage.style.display = "block";
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 5000);
         return;
       }
 
       const passwordOk = await bcrypt.compare(password, user.clave);
       if (!passwordOk) {
-        showError("Contraseña no válida, intente nuevamente.");
+        errorMessage.textContent = "Contraseña no válida, intente nuevamente.";
+        errorMessage.style.display = "block";
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 5000);
         return;
       }
 
@@ -72,9 +60,11 @@ window.login = (function () {
       window.location.href = "index.html";
     } catch (err) {
       console.error("Error al verificar usuario:", err);
-      showError("Error en el login. Intente nuevamente.");
-    } finally {
-      setLoading(false);
+      errorMessage.textContent = "Error en el login. Intente nuevamente.";
+      errorMessage.style.display = "block";
+      setTimeout(() => {
+        errorMessage.style.display = "none";
+      }, 5000);
     }
   }
 

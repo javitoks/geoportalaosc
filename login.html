@@ -23,41 +23,23 @@
     <link href="src/styles/css/main.css" rel="stylesheet" />
     <link href="src/styles/css/login.css" rel="stylesheet" />
   </head>
-  <body class="login-page">
-    <main id="login-wrapper" class="justify-content-center">
-      <section
-        class="container-fluid col-12 col-xs-12 col-sm-8 col-md-6 col-lg-5 mt-5 text-center center-flex"
-        aria-labelledby="login-title"
+  <body>
+    <div id="login-wrapper" class="justify-content-center">
+      <div
+        class="container-fluid col-12 col-xs-12 col-sm-6 col-md-5 mt-5 text-center center-flex"
       >
-        <div
-          class="login"
-          role="region"
-          aria-label="Inicio de sesión del Geoportal AOSC"
-        >
-          <form id="loginForm" class="login-container" novalidate>
-            <img
-              class="login-logo"
-              src="src/styles/images/aosc.png"
-              alt="Logo AOSC"
-            />
+        <div class="login">
+          <div class="login-container">
+            <img src="src/styles/images/aosc.png" width="30%" alt="Logo AOSC" />
             <p
               id="loginErrorMessage"
-              class="login-alert"
-              role="alert"
-              aria-live="polite"
-              hidden
+              style="color: red; display: none; margin-top: 10px"
             ></p>
-            <p class="login-kicker">Geoportal AOSC</p>
-            <h1 id="login-title">Acceso al visor de mapas</h1>
-            <p class="login-subtitle">
-              Ingresá con las credenciales asignadas para consultar la
-              información territorial.
-            </p>
+            <h3>Acceso al Visor de mapas</h3>
 
-            <label class="sr-only" for="input-user">Nombre de usuario</label>
-            <div class="input-group login-input-group">
+            <div class="input-group">
               <span class="input-group-addon" id="basic-addon2">
-                <i class="fas fa-user" aria-hidden="true"></i>
+                <i class="fas fa-user"></i>
               </span>
               <input
                 type="text"
@@ -65,82 +47,67 @@
                 class="form-control ui-input-text"
                 placeholder="Nombre de usuario"
                 aria-describedby="basic-addon2"
-                autocomplete="username"
                 required
               />
             </div>
 
-            <label class="sr-only" for="input-pwd">Clave de acceso</label>
-            <div class="input-group login-input-group">
+            <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">
-                <i class="fas fa-lock" aria-hidden="true"></i>
+                <i class="fas fa-lock"></i>
               </span>
               <input
                 type="password"
                 id="input-pwd"
                 class="form-control ui-input-text"
-                placeholder="Clave de acceso"
+                placeholder="Clave de Acceso"
                 aria-describedby="basic-addon1"
-                autocomplete="current-password"
                 required
               />
-              <button
-                class="input-group-addon password-toggle"
-                type="button"
-                id="togglePasswordButton"
-                aria-label="Mostrar contraseña"
-                aria-pressed="false"
+              <span
+                class="input-group-addon"
+                onclick="togglePassword()"
+                style="cursor: pointer; border-radius: 0px 5px 5px 0px"
               >
-                <i id="togglePwdIcon" class="fas fa-eye" aria-hidden="true"></i>
-              </button>
+                <i id="togglePwdIcon" class="fas fa-eye"></i>
+              </span>
             </div>
 
-            <div class="login-options">
+            <div class="checkbox">
               <label
                 ><input type="checkbox" id="inp-recuerdame" name="recuerdame" />
                 Recuérdame</label
               >
             </div>
 
-            <button
-              id="loginButton"
-              class="ui-btn ui-btn-confirm login-primary-action"
-              type="submit"
-            >
+            <button id="loginButton" class="ui-btn ui-btn-confirm">
               Ingresar
             </button>
 
             <hr />
             <button
               id="showAdviceButton"
-              class="ui-btn ui-btn-primary filled login-secondary-action"
               type="button"
+              class="ui-btn ui-btn-primary filled"
             >
-              Acceso público
+              Acceso Público
             </button>
-          </form>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
 
-    <div id="advice-wrapper" class="advice-wrapper" hidden>
-      <div class="modal-backdrop" data-close-advice>
-        <section
-          class="white-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="advice-title"
-        >
+    <div id="advice-wrapper" style="display: none">
+      <div class="advice-backdrop" id="adviceBackdrop">
+        <div class="white-modal">
           <button
             type="button"
             class="closer"
             id="closeAdviceButton"
-            aria-label="Cerrar aviso"
+            aria-label="Cerrar información de acceso público"
           >
             <i class="fa fa-times" aria-hidden="true"></i>
           </button>
-          <h2 id="advice-title">Información de acceso público</h2>
-          <p>
+          <p style="margin-top: 30px">
             Su municipio ya posee clave asignada, la misma ha sido enviada al
             mail de contacto informado a la Subsecretaría de Relaciones
             Municipales del Ministerio del Interior. Por favor verifique con las
@@ -155,9 +122,9 @@
               >datosmunicipales@mininterior.gob.ar</a
             >
             indicando nombre del Gobierno Local, provincia, su nombre y
-            apellido, cargo y teléfono de contacto oficial.
+            apellido, cargo y teléfono de contacto oficial
           </p>
-        </section>
+        </div>
       </div>
     </div>
 
@@ -167,10 +134,42 @@
         login.process();
       }
 
-      function setAdviceVisibility(isVisible) {
-        const adviceWrapper = document.getElementById("advice-wrapper");
-        adviceWrapper.hidden = !isVisible;
+      function showAdvice() {
+        document.getElementById("advice-wrapper").style.display = "flex";
       }
+
+      function hideAdvice() {
+        document.getElementById("advice-wrapper").style.display = "none";
+      }
+
+      // Click en el botón
+      document
+        .getElementById("loginButton")
+        .addEventListener("click", handleLogin);
+      document
+        .getElementById("showAdviceButton")
+        .addEventListener("click", showAdvice);
+      document
+        .getElementById("closeAdviceButton")
+        .addEventListener("click", hideAdvice);
+      document
+        .getElementById("adviceBackdrop")
+        .addEventListener("click", function (e) {
+          if (e.target === this) hideAdvice();
+        });
+
+      // Presionar Enter en el input de contraseña
+      document
+        .getElementById("input-pwd")
+        .addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            handleLogin(e);
+          }
+        });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") hideAdvice();
+      });
 
       function togglePassword() {
         const pwdInput = document.getElementById("input-pwd");
@@ -191,26 +190,16 @@
         );
       }
 
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", handleLogin);
-      document
-        .getElementById("togglePasswordButton")
-        .addEventListener("click", togglePassword);
-      document
-        .getElementById("showAdviceButton")
-        .addEventListener("click", () => setAdviceVisibility(true));
-      document
-        .getElementById("closeAdviceButton")
-        .addEventListener("click", () => setAdviceVisibility(false));
-      document
-        .querySelector("[data-close-advice]")
-        .addEventListener("click", function (event) {
-          if (event.target === this) setAdviceVisibility(false);
-        });
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") setAdviceVisibility(false);
-      });
+        if (pwdInput.type === "password") {
+          pwdInput.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          pwdInput.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      }
     </script>
   </body>
 </html>
