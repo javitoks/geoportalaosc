@@ -169,6 +169,21 @@
       function togglePassword() {
         const pwdInput = document.getElementById("input-pwd");
         const icon = document.getElementById("togglePwdIcon");
+        const toggleButton = document.getElementById("togglePasswordButton");
+        const shouldShowPassword = pwdInput.type === "password";
+
+        pwdInput.type = shouldShowPassword ? "text" : "password";
+        icon.classList.toggle("fa-eye", !shouldShowPassword);
+        icon.classList.toggle("fa-eye-slash", shouldShowPassword);
+        toggleButton.setAttribute(
+          "aria-label",
+          shouldShowPassword ? "Ocultar contraseña" : "Mostrar contraseña",
+        );
+        toggleButton.setAttribute(
+          "aria-pressed",
+          shouldShowPassword.toString(),
+        );
+      }
 
         if (pwdInput.type === "password") {
           pwdInput.type = "text";
