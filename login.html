@@ -91,20 +91,20 @@
             }
         });
 
-    function togglePassword() {
-        const pwdInput = document.getElementById("input-pwd");
-        const icon = document.getElementById("togglePwdIcon");
+        function togglePassword() {
+            const pwdInput = document.getElementById("input-pwd");
+            const icon = document.getElementById("togglePwdIcon");
 
-        if (pwdInput.type === "password") {
-            pwdInput.type = "text";
-            icon.classList.remove("fa-eye");
-            icon.classList.add("fa-eye-slash");
-        } else {
-            pwdInput.type = "password";
-            icon.classList.remove("fa-eye-slash");
-            icon.classList.add("fa-eye");
+            if (pwdInput.type === "password") {
+                pwdInput.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                pwdInput.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
         }
-    }
 </script>
 </body>
 </html>
