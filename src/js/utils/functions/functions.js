@@ -1079,7 +1079,11 @@ function zoomEditableLayers(layername) {
 
 function bindZoomLayer() {
   let elements = document.getElementsByClassName("zoom-layer");
-  let zoomLayer = async function () {
+  let zoomLayer = async function (event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     let layer_name = this.getAttribute("layername");
     let layer = app.layers[layer_name].capa;
@@ -1140,13 +1144,20 @@ function bindZoomLayer() {
   };
 
   for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click", zoomLayer, false);
+    if (!elements[i].dataset.zoomBound) {
+      elements[i].addEventListener("click", zoomLayer, false);
+      elements[i].dataset.zoomBound = "true";
+    }
   }
 }
 
 function bindLayerOptions() {
   let elements = document.getElementsByClassName("layer-options-icon");
-  let layerOptions = function () {
+  let layerOptions = function (event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     let layername = this.getAttribute("layername");
     if (!app.layers[layername].display_options) {
       menu_ui.addLayerOptions(layername);
@@ -1156,7 +1167,10 @@ function bindLayerOptions() {
   };
 
   for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click", layerOptions, false);
+    if (!elements[i].dataset.optionsBound) {
+      elements[i].addEventListener("click", layerOptions, false);
+      elements[i].dataset.optionsBound = "true";
+    }
   }
 }
 

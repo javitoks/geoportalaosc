@@ -103,8 +103,6 @@ class ImpresorItemHTML extends Impresor {
   imprimir(item) {
     var childId = item.getId();
     let lyr = item.capa,
-      legend,
-      legendParams = _LEGEND_PARAMS + _LEGEND_OPTIONS + "forceTitles:off;forceLabels:off;",
       aux = {
         ...item,
         childid: childId,
@@ -114,100 +112,154 @@ class ImpresorItemHTML extends Impresor {
     app.setLayer(aux);
     app.layerNameByDomId[childId] = item.nombre;
 
-    if (
-      lyr.legendURL === null ||
-      typeof lyr.legendURL === "undefined" ||
-      lyr.legendURL === ""
-    ) {
-      if (lyr.servicio === "wms") {
-        lyr.legendURL =
-          lyr.host +
-          "?service=WMS&request=GetLegendGraphic&format=image%2Fpng&version=1.1.1&layer=" +
-          lyr.nombre;
-      } else {
-        lyr.legendURL = item.legendImg || ERROR_IMG;
-      }
-    }
-    legend = lyr.legendURL.includes("GetLegendGraphic")
-      ? lyr.legendURL + legendParams
-      : lyr.legendURL;
-
-    // following line adds layer when click is made
-    let legendImg = `<div class='legend-layer'><img class='legend-img' style='width:20px;height:20px' loading='lazy' src='${legend}' onerror='showImageOnError(this);' onload='adaptToImage(this.parentNode)'></div>`;
-    let activated = item.visible == true ? " active " : "",
-      btnhtml = "";
+    const layerTitle = item.titulo
+      ? item.titulo.replace(/_/g, " ")
+      : "por favor ingrese un nombre";
+    const layerDescription = item.descripcion || layerTitle;
+    const activated = item.visible == true ? " active layer-active" : "";
 
     const btn = document.createElement("li");
     btn.id = childId;
-    btn.classList = "capa list-group-item" + activated;
-    btn.style.padding = "10px 1px 10px 1px";
+    btn.className = "capa list-group-item layer-row" + activated;
+    btn.setAttribute("data-layer-name", item.nombre);
 
-    const btn_title = document.createElement("div");
-    btn_title.className = "capa-title";
-    btn_title.innerHTML = legendImg;
+    const legendWrapper = document.createElement("div");
+    legendWrapper.className = "legend-layer layer-legend";
+    const legendImg = document.createElement("img");
+    legendImg.className = "legend-img";
+    legendImg.loading = "lazy";
+    legendImg.alt = "";
+    legendImg.src = buildLayerLegendUrl(lyr, item.legendImg);
+    legendImg.onerror = function () {
+      showImageOnError(this);
+    };
+    legendImg.onload = function () {
+      adaptToImage(this.parentNode);
+    };
+    legendWrapper.appendChild(legendImg);
 
-    const btn_name = document.createElement("div");
-    btn_name.className = "name-layer";
+    const btn_name = document.createElement("button");
+    btn_name.type = "button";
+    btn_name.className = "name-layer layer-name";
+    btn_name.setAttribute("nombre", item.nombre);
+    btn_name.setAttribute("title", layerTitle);
+    btn_name.setAttribute("aria-label", "Activar o desactivar capa " + layerTitle);
     btn_name.setAttribute("onClick", `gestorMenu.muestraCapa(\'${childId}\')`);
-    btn_name.style.alignSelf = "center";
-
-    const btn_link = document.createElement("a");
-    btn_link.setAttribute("nombre", item.nombre);
-    btn_link.href = "#";
 
     const btn_tooltip = document.createElement("span");
     btn_tooltip.setAttribute("data-toggle2", "tooltip");
-    btn_tooltip.title = item.descripcion;
-    btn_tooltip.innerHTML = item.titulo
-      ? item.titulo.replace(/_/g, " ")
-      : "por favor ingrese un nombre";
+    btn_tooltip.title = layerDescription;
+    btn_tooltip.textContent = layerTitle;
+    btn_name.appendChild(btn_tooltip);
 
-    const btn_zoom = document.createElement("div");
-    btn_zoom.className = "zoom-layer";
+    const btn_zoom = document.createElement("button");
+    btn_zoom.type = "button";
+    btn_zoom.className = "zoom-layer layer-zoom";
     btn_zoom.setAttribute("layername", item.nombre);
-    btn_zoom.style.alignSelf = "center";
+    btn_zoom.setAttribute("aria-label", "Zoom a capa " + layerTitle);
+    btn_zoom.title = "Zoom a capa";
 
     const btn_zoom_icon = document.createElement("i");
-    btn_zoom_icon.classList = "fas fa-search-plus";
-    btn_zoom_icon.title = "Zoom a capa";
+    btn_zoom_icon.className = "fas fa-search-plus";
+    btn_zoom_icon.setAttribute("aria-hidden", "true");
+    btn_zoom.appendChild(btn_zoom_icon);
 
-    const btn_options_icon_div = document.createElement("div");
+    const visibilityIndicator = document.createElement("span");
+    visibilityIndicator.className = "layer-visibility-indicator";
+    visibilityIndicator.setAttribute("aria-hidden", "true");
+    btn_name.appendChild(visibilityIndicator);
+
+    const btn_options_icon_div = document.createElement("button");
+    btn_options_icon_div.type = "button";
     btn_options_icon_div.className = "layer-options-icon";
     btn_options_icon_div.setAttribute("layername", item.nombre);
     btn_options_icon_div.title = "Opciones";
+    btn_options_icon_div.setAttribute("aria-label", "Opciones de capa " + layerTitle);
 
     const btn_options_icon = document.createElement("i");
-    btn_options_icon.classList = "fas fa-angle-down";
-    btn_options_icon.title = "Zoom a capa";
-
-    const btn_options_list = document.createElement("div");
-    btn_options_list.className = "display-none";
-    btn_options_list.id = "layer-options-" + item.nombre;
+    btn_options_icon.className = "fas fa-angle-down";
+    btn_options_icon.setAttribute("aria-hidden", "true");
 
     const btn_options = document.createElement("div");
     btn_options.className = "display-none";
     btn_options.id = "layer-options-" + item.nombre;
 
     if (loadLayerOptions) {
-      btn.style.padding = "10px 1px 1px 1px";
-      btn_name.removeAttribute("style");
-      btn_zoom.removeAttribute("style");
+      btn.classList.add("layer-row-with-options");
       btn_options_icon_div.appendChild(btn_options_icon);
     }
 
-    btn_link.appendChild(btn_tooltip);
-    btn_name.appendChild(btn_link);
-    btn_title.appendChild(btn_name);
-
-    btn_zoom.appendChild(btn_zoom_icon);
-    btn_title.appendChild(btn_zoom);
-
-    btn.appendChild(btn_title);
-    btn.appendChild(btn_options_icon_div);
+    btn.appendChild(legendWrapper);
+    btn.appendChild(btn_name);
+    btn.appendChild(btn_zoom);
+    if (loadLayerOptions) {
+      btn.appendChild(btn_options_icon_div);
+    }
     btn.appendChild(btn_options);
 
     return btn.outerHTML;
   }
+}
+
+function buildLayerLegendUrl(layer, fallbackLegend) {
+  if (!layer) {
+    return fallbackLegend || ERROR_IMG;
+  }
+
+  if (layer.legendURL) {
+    return ensureSecureLegendUrl(layer.legendURL.includes("GetLegendGraphic")
+      ? layer.legendURL + _LEGEND_PARAMS + _LEGEND_OPTIONS + "forceTitles:off;forceLabels:off;"
+      : layer.legendURL);
+  }
+
+  if (layer.servicio === "wms" && layer.host) {
+    const url = new URL(layer.host, window.location.origin);
+    const workspace = getGeoserverWorkspace(url, layer.nombre);
+    if (workspace) {
+      const parts = url.pathname.split("/").filter(Boolean);
+      const geoserverIndex = parts.indexOf("geoserver");
+      if (geoserverIndex >= 0) {
+        url.pathname = "/" + parts.slice(0, geoserverIndex + 1).concat([workspace, "wms"]).join("/");
+      }
+    }
+    url.search = "";
+    const layerName = layer.nombre.includes(":") || !workspace ? layer.nombre : workspace + ":" + layer.nombre;
+    url.searchParams.set("service", "WMS");
+    url.searchParams.set("version", "1.1.0");
+    url.searchParams.set("request", "GetLegendGraphic");
+    url.searchParams.set("format", "image/png");
+    url.searchParams.set("width", "20");
+    url.searchParams.set("height", "20");
+    url.searchParams.set("layer", layerName);
+    url.searchParams.set("transparent", "true");
+    url.searchParams.set("LEGEND_OPTIONS", "forceTitles:off;forceLabels:off;fontAntiAliasing:true;hideEmptyRules:true");
+    return ensureSecureLegendUrl(url.toString());
+  }
+
+  return fallbackLegend || ERROR_IMG;
+}
+
+function getGeoserverWorkspace(url, layerName) {
+  const prefixedLayer = layerName && layerName.includes(":") ? layerName.split(":")[0] : null;
+  if (prefixedLayer) {
+    return prefixedLayer;
+  }
+  const parts = url.pathname.split("/").filter(Boolean);
+  const geoserverIndex = parts.indexOf("geoserver");
+  if (geoserverIndex >= 0 && parts[geoserverIndex + 1] && parts[geoserverIndex + 1] !== "wms") {
+    return parts[geoserverIndex + 1];
+  }
+  return null;
+}
+
+function ensureSecureLegendUrl(url) {
+  if (!url || typeof url !== "string") {
+    return ERROR_IMG;
+  }
+  if (url.startsWith("http://")) {
+    return url.replace("http://", "https://");
+  }
+  return url;
 }
 
 class ImpresorItemWMSSelector extends Impresor {
@@ -407,47 +459,58 @@ class ImpresorItemCapaBaseHTML extends Impresor {
 class ImpresorGrupoHTML extends Impresor {
   imprimir(itemComposite) {
     var listaId = itemComposite.getId();
-    var itemClass = "menu5";
-    let seccion = itemComposite.seccion;
-
     var active = itemComposite.getActive() == true ? " in " : "";
+    var expanded = itemComposite.getActive() == true ? "true" : "false";
+    var titleId = listaId + "-title";
+    var groupDescription = escapeHtmlAttribute(itemComposite.descripcion || "");
 
     return (
-      '<div id="' +
+      '<section id="' +
       listaId +
-      '" class="' +
-      itemClass +
-      ' panel-default">' +
-      '<div class="panel-heading">' +
-      '<h4 class="panel-title">' +
-      '<a id="' +
+      '" class="menu5 panel-default layer-group">' +
+      '<button id="' +
       listaId +
-      '-a" data-toggle="collapse" data-parent="#accordion1" href="#' +
+      '-a" type="button" class="layer-group-header" data-toggle="collapse" data-target="#' +
       itemComposite.seccion +
-      '" class="item-group-title">' +
+      '" aria-expanded="' +
+      expanded +
+      '" aria-controls="' +
+      itemComposite.seccion +
+      '">' +
+      '<span class="layer-group-text">' +
+      '<span id="' +
+      titleId +
+      '" class="item-group-title layer-group-title">' +
       itemComposite.nombre +
-      "</a>" +
-      "<div class='item-group-short-desc'><a data-toggle='collapse' data-toggle2='tooltip' title='" +
-      itemComposite.descripcion +
-      "' href='#" +
+      '</span>' +
+      '<span class="item-group-short-desc layer-group-description" data-toggle2="tooltip" title="' +
+      groupDescription +
+      '">' +
+      (itemComposite.shortDesc || "") +
+      '</span>' +
+      '</span>' +
+      '<i class="fas fa-chevron-down layer-group-arrow" aria-hidden="true"></i>' +
+      '</button>' +
+      '<div id="' +
       itemComposite.seccion +
-      "'>" +
-      itemComposite.shortDesc +
-      "</a></div>" +
-      "</h4>" +
-      "</div>" +
-      "<div id='" +
-      itemComposite.seccion +
-      "' class='panel-collapse collapse" +
+      '" class="panel-collapse collapse layer-group-content' +
       active +
-      "'>" +
+      '">' +
       '<div class="panel-body">' +
       itemComposite.itemsStr +
-      "</div>" +
-      "</div>" +
-      "</div>"
+      '</div>' +
+      '</div>' +
+      '</section>'
     );
   }
+}
+
+function escapeHtmlAttribute(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 class ImpresorGroupWMSSelector extends Impresor {
@@ -1627,15 +1690,16 @@ class ItemGroup extends ItemComposite {
 
   muestraCantidadCapasVisibles() {
     var iCapasVisibles = this.getCantidadCapasVisibles();
+    const titleSelector = "#" + this.getId() + "-title";
     if (iCapasVisibles > 0) {
-      $("#" + this.getId() + "-a").html(
+      $(titleSelector).html(
         this.nombre +
         " <span class='active-layers-counter'>" +
         iCapasVisibles +
         "</span>"
       );
     } else {
-      $("#" + this.getId() + "-a").html(this.nombre);
+      $(titleSelector).html(this.nombre);
     }
   }
 
@@ -1848,10 +1912,10 @@ class Item extends ItemComposite {
   }
 
   showHide() {
-    $("#" + this.getId()).toggleClass("active");
+    $("#" + this.getId()).toggleClass("active layer-active");
 
     if (this.seccion.includes("mapasbase0") && !$("#" + this.getId()).hasClass("active")) {
-      $("#" + this.getId()).toggleClass("active");
+      $("#" + this.getId()).toggleClass("active layer-active");
     }//fixes main mapabase active bug by asking if its not activated.
 
     if (typeof this.callback == "string") {
