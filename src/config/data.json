@@ -239,6 +239,7 @@
       "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/distrito_ituzaingo/wms",
       "roles": ["admin", "ituzaingo"],
       "feature_info_format": "application/json",
+      "featureInfoFormat": "application/json",
 
       "customize_layers": {
         "Usuarios_Distrito_Ituzaingo": {
