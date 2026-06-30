@@ -236,7 +236,7 @@
       "seccion": "distrito-ituzaingo",
       "servicio": "wms",
       "version": "1.3.0",
-      "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/distrito_ituzaingo/wms",
+      "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/distrito_ituzaingo",
       "roles": ["admin", "ituzaingo"],
       "feature_info_format": "application/json",
       "featureInfoFormat": "application/json",
