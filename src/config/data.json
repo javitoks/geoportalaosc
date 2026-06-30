@@ -78,14 +78,14 @@
 
     {
     "tab": {
-        "id": "Explotacion",
+        "id": "Información",
         "searcheable": true,
         "content": "Explotación"
       },
       "type": "wmslayer",
       "peso": 10,
       "nombre": "Distrito LORETO",
-      "short_abstract": "Provincia de Corrientes",
+      "short_abstract": "No Concesionado - A cargo AOSC",
       "class": "",
       "seccion": "distrito-loreto",
       "servicio": "wms",
@@ -98,11 +98,6 @@
           "new_title": "Barrios de Loreto",
           "new_abstract": "Barrios de Loreto",
           "new_keywords": "barrios, loreto"
-        },
-        "Calles_Loreto": {
-          "new_title": "Calles de Loreto",
-          "new_abstract": "Calles de Loreto",
-          "new_keywords": "calles, loreto"
         },
         "Tanques_Red_Loreto": {
           "new_title": "Tanques de Red de Loreto",
@@ -144,7 +139,7 @@
 
     {
       "tab": {
-        "id": "Explotacion",
+        "id": "Información",
         "searcheable": true,
         "content": "Explotación"
       },
@@ -165,46 +160,21 @@
           "new_abstract": "Cajas de Desagües de Loreto",
           "new_keywords": "cajas, desagües, loreto"
         },
-        "Canieria110_RN_Loreto": {
-          "new_title": "Canería de 110mm - RED NUEVA",
-          "new_abstract": "Canería de 110mm de Loreto",
-          "new_keywords": "canería, 110mm, loreto"
+        "Canieria_RN_Loreto": {
+          "new_title": "Canería - RED NUEVA",
+          "new_abstract": "Canería Red Nueva Loreto",
+          "new_keywords": "canería, red nueva, loreto"
         },
-        "Canieria110_RV_Loreto": {
-          "new_title": "Canería de 110mm - RED VIEJA",
-          "new_abstract": "Canería de 110mm de Loreto",
-          "new_keywords": "canería, 110mm, loreto"
-        },
-        "Canieria63_RN_Loreto": {
-          "new_title": "Canería de 63mm - RED NUEVA",
-          "new_abstract": "Canería de 63mm de Loreto",
-          "new_keywords": "canería, 63mm, loreto"
-        },
-        "Canieria63_RV_Loreto": {
-          "new_title": "Canería de 63mm - RED VIEJA",
-          "new_abstract": "Canería de 63mm de Loreto",
-          "new_keywords": "canería, 63mm, loreto"
-        },
-        "Canieria75_RN_Loreto": {
-          "new_title": "Canería de 75mm - RED NUEVA",
-          "new_abstract": "Canería de 75mm de Loreto",
-          "new_keywords": "canería, 75mm, loreto"
-        },
-        "Canieria50_RV_Loreto": {
-          "new_title": "Canería de 50mm - RED VIEJA",
-          "new_abstract": "Canería de 50mm de Loreto",
-          "new_keywords": "canería, 50mm, loreto"
-        },
+        "Canieria_RV_Loreto": {
+          "new_title": "Canería - RED VIEJA",
+          "new_abstract": "Canería Red Vieja Loreto",
+          "new_keywords": "canería, red vieja, loreto"
+        },        
         "Nudos_Red_Loreto": {
           "new_title": "Nudos de Red de Loreto",
           "new_abstract": "Nudos de Red de Loreto",
           "new_keywords": "nudos, red, loreto"
-        },
-        "Redmangueras_RV_Loreto": {
-          "new_title": "Red de Mangueras - VIEJA",
-          "new_abstract": "Red de Mangueras de Loreto", 
-          "new_keywords": "red, mangueras, loreto"
-        },
+        },        
         "Tapones_Red_Loreto": {
           "new_title": "Tapones de Red de Loreto",
           "new_abstract": "Tapones de Red de Loreto",
@@ -250,14 +220,14 @@
     },
     {
       "tab": {
-        "id": "Explotacion",
+        "id": "Información",
         "searcheable": true,
         "content": "Explotación"
       },
       "type": "wmslayer",
       "peso": 10,
       "nombre": "Distrito ITUZAINGÓ",
-      "short_abstract": "Provincia de Corrientes",
+      "short_abstract": "No Concesionado - A cargo AOSC",
       "class": "",
       "seccion": "distrito-ituzaingo",
       "servicio": "wms",
@@ -301,7 +271,7 @@
 
     {
       "tab": {
-        "id": "Explotacion",
+        "id": "Información",
         "searcheable": true,
         "content": "Explotación"
       },
@@ -317,51 +287,21 @@
       "roles": ["admin", "ituzaingo"],
 
       "customize_layers": {
-        "CaneriaDN150_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN150",
+        "Caneria_Cloaca_Ituzaingo": {
+          "new_title": "Cañería Cloacas Ituzaingo",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
-        },
-         "CaneriaDN160_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN160",
-          "new_abstract": "Red de Cloacas - Ituzaingo",
-          "new_keywords": "cloacas, ituzaingó"
-        },
-        "CaneriaDN200_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN200",
-          "new_abstract": "Red de Cloacas - Ituzaingo",
-          "new_keywords": "cloacas, ituzaingó"
-        },
-        "CaneriaDN250_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN250",
-          "new_abstract": "Red de Cloacas - Ituzaingo",
-          "new_keywords": "cloacas, ituzaingó"
-        },
-        "CaneriaDN300_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN300",
-          "new_abstract": "Red de Cloacas - Ituzaingo",
-          "new_keywords": "cloacas, ituzaingó"
-        },
-        "CaneriaDN350_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN350",
-          "new_abstract": "Red de Cloacas - Ituzaingo",
-          "new_keywords": "cloacas, ituzaingó"
-        },
-        "CaneriaDN400_Cloaca_Ituzaingo": {
-          "new_title": "Cañería DN400",
-          "new_abstract": "Red de Cloacas - Ituzaingo",
-          "new_keywords": "cloacas, ituzaingó"
-        },
+        },     
         "Estacion_Elevadora": {
           "new_title": "Estación Elevadora",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
-      },
-      "camarareg_cloaca_ituzaingo": {
+        },
+        "camarareg_cloaca_ituzaingo": {
           "new_title": "Cámaras de Registro",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
-      },
+        },
         "bocasreg_cloaca_ituzaingo": {
           "new_title": "Bocas de Registro",
           "new_abstract": "Red de Cloacas - Ituzaingo",
