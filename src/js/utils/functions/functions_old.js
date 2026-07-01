@@ -295,12 +295,19 @@ function loadWmsTplAux(objLayer) {
     delete overlayMaps[layer];
   } else {
     createWmsLayer(objLayer);
+    if (consultDataBtnClose == false) {
+      overlayMaps[layer].addTo(mapa);
 
-    const source = overlayMaps[layer]._source;
-    source.options.identify = consultDataBtnClose === false;
+      const source = overlayMaps[layer]._source;
 
-    overlayMaps[layer].addTo(mapa);
-  }
+      mapa.off("click", source.identify, source);
+
+      if (consultDataBtnClose === false) {
+      source.options.identify = true;
+      mapa.on("click", source.identify, source);
+  } else {
+      source.options.identify = false;
+}
 }
 
 function ucwords(str) {
@@ -465,8 +472,7 @@ function createWmsLayer(objLayer) {
     title: layerSelected.titulo,
     format: "image/png",
     exceptions: "xml",
-    INFO_FORMAT:
-      layerSelected.featureInfoFormat || "application/json",
+    INFO_FORMAT: layerSelected.featureInfoFormat || "application/json",
   }); 
   
   overlayMaps[layerSelected.nombre] = wmsSource.getLayer(layerSelected.nombre);
@@ -993,11 +999,18 @@ function clickWMSLayer(layer, layer_item, fileName) {
     layer.active = true;
 
     createImportWmsLayer(layer);
+      overlayMaps[layer.name].addTo(mapa);
 
-    const source = overlayMaps[layer.name]._source;
-    source.options.identify = consultDataBtnClose === false;
+      const source = overlayMaps[layer.name]._source;
 
-    overlayMaps[layer.name].addTo(mapa);
+      mapa.off("click", source.identify, source);
+
+      if (consultDataBtnClose === false) {
+      source.options.identify = true;
+      mapa.on("click", source.identify, source);
+} else {
+  source.options.identify = false;
+}
 
     //Original
     // layer.L_layer = L.tileLayer

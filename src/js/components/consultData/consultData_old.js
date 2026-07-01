@@ -85,35 +85,45 @@ function getPopupForWMS(isActive) {
 
         const source = overlayLayer._source;
 
-        // Quita cualquier manejador anterior para evitar duplicados.
+        // Evita registrar varias veces el mismo evento.
         mapa.off("click", source.identify, source);
+
         source.options.identify = isActive;
 
-        // Registra la consulta solamente cuando la herramienta está activa.
         if (isActive && mapa.hasLayer(overlayLayer)) {
             mapa.on("click", source.identify, source);
         }
     });
+}
 
-    // Capas WMS importadas que estén activas.
-    addedLayers.forEach(function (lyr) {
-        if (lyr.type !== "WMS" || lyr.isActive !== true || !lyr.layer) {
-            return;
-        }
+    //Menu WMS & WMTS
+    itemCapa.forEach(item => {
+        if (gestorMenu.layerIsWmts(item.nombre)) {  //is WMTS
+            chooseLyrType(item, isActive,"lyrJoin");
 
-        const importedLayer = overlayMaps[lyr.layer.name];
-        if (!importedLayer || !importedLayer._source) {
-            return;
-        }
-
-        const source = importedLayer._source;
-        mapa.off("click", source.identify, source);
-        source.options.identify = isActive;
-
-        if (isActive && mapa.hasLayer(importedLayer)) {
-            mapa.on("click", source.identify, source);
+        } else {    //is WMS
+            if (item.capas[1]) {    //is double WMS
+                chooseLyrType(item, isActive,"lyrJoin");
+            } else {                //is single WMS
+                chooseLyrType(item, isActive,"singleLyr");
+            }
         }
     });
+
+    //Import WMS
+    let importedWMS;
+    addedLayers.forEach(lyr => {
+        if (lyr.type === "WMS" && lyr.isActive === true) {
+            importedWMS = lyr.layer;
+            overlayMaps[importedWMS.name].removeFrom(mapa);
+            delete overlayMaps[importedWMS.name];
+
+            createImportWmsLayer(importedWMS);
+            overlayMaps[importedWMS.name]._source.options.identify = isActive;
+            overlayMaps[importedWMS.name].addTo(mapa);
+        }
+    });
+
 }
 
 function chooseLyrType(item, isActive, lyrType) {
@@ -181,17 +191,16 @@ function createImportWmsLayer(layer) {
       });
   
       var layerPopUp = new MySource(layer.host, {
-        transparent: true,
         version: layer.version || "1.1.1",
+        transparent: true,
         tiled: true,
         maxZoom: 21,
         title: layer.title,
         format: "image/png",
-        exceptions: "xml",
-        INFO_FORMAT:
-          layer.featureInfoFormat ||
-          layer.feature_info_format ||
-          "application/json"
+        INFO_FORMAT: 
+            layer.featureInfoFormat ||
+            layer.feature_info_format ||
+        "   application/json",
       });
       overlayMaps[layer.name] = layerPopUp.getLayer(layer.name);
 }
