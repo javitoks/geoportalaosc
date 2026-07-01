@@ -344,56 +344,88 @@ function parseFeatureInfoHTML(info, idTxt) {
 
 //Parse FeatureInfo to display into popup (if info is application/json)
 function parseFeatureInfoJSON(info, idTxt, title) {
-  if(info.includes("Either no layer was queryable, or no layers were specified using QUERY_LAYERS")) {
-    return "LayerNotQueryable";
-  }
-  info = JSON.parse(info);
-
-  if (info.exceptions) {
-    if (info.exceptions[0].code === "LayerNotQueryable") {
-      return info.exceptions[0].code;
-    } else {
-      new UserMessage("WMS error: " + info.exceptions[0].text, true, 'error');
-      return 0;
+  try {
+    if (
+      typeof info === "string" &&
+      info.includes(
+        "Either no layer was queryable, or no layers were specified using QUERY_LAYERS"
+      )
+    ) {
+      return "LayerNotQueryable";
     }
-  }
 
-  if (info.features.length > 0) {
-    // check if info has any content, if so shows popup
+    if (typeof info === "string") {
+      info = JSON.parse(info);
+    }
 
-    var infoAux =
+    if (info.exceptions) {
+      if (info.exceptions[0].code === "LayerNotQueryable") {
+        return info.exceptions[0].code;
+      }
+
+      new UserMessage(
+        "WMS error: " + info.exceptions[0].text,
+        true,
+        "error"
+      );
+
+      return "";
+    }
+
+    if (!info.features || info.features.length === 0) {
+      return "";
+    }
+
+    let infoAux =
       '<div class="featureInfo" id="featureInfoPopup' + idTxt + '">';
+
     infoAux += '<div class="featureGroup">';
-    infoAux += '<div style="/*padding:1em*/" class="individualFeature">';
+    infoAux += '<div class="individualFeature">';
+
     infoAux +=
       '<h4 style="border-top:1px solid gray;text-decoration:underline;margin:1em 0">' +
-      title +
+      (title || "Información") +
       "</h4>";
+
     infoAux += "<ul>";
 
-    for (i in info.features) {
-      /* console.table(info.features[i].properties); */
-      Object.keys(info.features[i].properties).forEach(function (k) {
-        let ignoredField = templateFeatureInfoFieldException.includes(k); // checks if field is defined in data.json to be ignored in the popup
-        if (k != "bbox" && !ignoredField) {
-          //Do not show bbox property
-          infoAux += "<li>";
-          infoAux += "<b>" + ucwords(k.replace(/_/g, " ")) + ":</b>";
-          if (info.features[i].properties[k] != null) {
-            infoAux += "<span>" + info.features[i].properties[k] + "</span>";
-          }
-          infoAux += "</li>";
+    const ignoredFields =
+      typeof templateFeatureInfoFieldException !== "undefined" &&
+      Array.isArray(templateFeatureInfoFieldException)
+        ? templateFeatureInfoFieldException
+        : [];
+
+    info.features.forEach(function (feature) {
+      const properties = feature.properties || {};
+
+      Object.keys(properties).forEach(function (key) {
+        if (key === "bbox" || ignoredFields.includes(key)) {
+          return;
         }
+
+        const value = properties[key];
+
+        infoAux += "<li>";
+        infoAux +=
+          "<b>" + ucwords(key.replace(/_/g, " ")) + ":</b>";
+
+        if (value !== null && value !== undefined) {
+          infoAux += "<span>" + value + "</span>";
+        }
+
+        infoAux += "</li>";
       });
-    }
+    });
 
     infoAux += "</ul>";
     infoAux += "</div></div></div>";
 
     return infoAux;
+  } catch (error) {
+    console.error("Error procesando GetFeatureInfo:", error);
+    console.error("Respuesta recibida:", info);
+    return "";
   }
-
-  return "";
 }
 
 function createWmsLayer(objLayer) {
