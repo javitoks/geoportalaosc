@@ -462,13 +462,13 @@ function createWmsLayer(objLayer) {
   });
   var wmsSource = new MySource(lyrHost, {
     transparent: true,
-    version: '1.3.0',
+    version: layerSelected.version || "1.1.1",
     tiled: true,
     maxZoom: 21,
     title: layerSelected.titulo,
     format: "image/png",
     exceptions: "xml",
-    INFO_FORMAT: layerSelected.featureInfoFormat,
+    INFO_FORMAT: layerSelected.featureInfoFormat || "application/json",
   }); 
   
   overlayMaps[layerSelected.nombre] = wmsSource.getLayer(layerSelected.nombre);

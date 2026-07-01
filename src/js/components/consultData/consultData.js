@@ -187,12 +187,16 @@ function createImportWmsLayer(layer) {
       });
   
       var layerPopUp = new MySource(layer.host, {
+        version: layer.version || "1.1.1",
         transparent: true,
         tiled: true,
         maxZoom: 21,
         title: layer.title,
         format: "image/png",
-        INFO_FORMAT: "application/json"
+        INFO_FORMAT: 
+            layer.featureInfoFormat ||
+            layer.feature_info_format ||
+        "   application/json",
       });
       overlayMaps[layer.name] = layerPopUp.getLayer(layer.name);
 }
