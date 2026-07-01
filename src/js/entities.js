@@ -2122,21 +2122,21 @@ class GestorMenu {
   }
 
   getActiveLayersWithoutBasemap() {
-    // Filter active layers to exclude base layers
-    const activeLayers = this.activeLayers.filter((layer) => {
-      return !this.availableBaseLayers.includes(layer);
-    });
-    return Object.keys(this.layersDataForWfs).length === 0
-      ? []
-      : activeLayers.map((activeLayer) => {
-        if (
-          this.layersDataForWfs.hasOwnProperty(activeLayer) &&
-          this.layersDataForWfs[activeLayer]
-        ) {
-          return this.layersDataForWfs[activeLayer];
-        }
-      });
+  // Excluir los mapas base de la lista de capas activas
+  const activeLayers = this.activeLayers.filter((layer) => {
+    return !this.availableBaseLayers.includes(layer);
+  });
+
+  // Reconstruir el índice si todavía no fue generado
+  if (Object.keys(this.layersDataForWfs).length === 0) {
+    this.setLayersDataForWfs();
   }
+
+  // Devolver únicamente las capas activas registradas
+  return activeLayers
+    .map((activeLayer) => this.layersDataForWfs[activeLayer])
+    .filter((layer) => layer !== undefined && layer !== null);
+}
 
   addActiveLayer(layer_id) {
     const idx = this.activeLayers.findIndex((layer) => layer === layer_id);
