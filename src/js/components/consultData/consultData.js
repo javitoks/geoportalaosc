@@ -76,21 +76,25 @@ function activateDataConsult() {
 }
 
 function getPopupForWMS(isActive) {
-    let itemNames = [], itemCapa = [];
+    Object.keys(overlayMaps).forEach(function (layerName) {
+        const overlayLayer = overlayMaps[layerName];
 
-    gestorMenu.getActiveLayersWithoutBasemap().forEach(lyr => {
-        if (!itemNames.includes(lyr.name)) itemNames.push(lyr.name);
-    })
-    itemNames.forEach(activeLayerName => {
-       Object.values(gestorMenu.items).forEach(item => {   
-        Object.values(item.itemsComposite).forEach(itemComposite => {
+        if (!overlayLayer || !overlayLayer._source) {
+            return;
+        }
 
-            if (activeLayerName == itemComposite.nombre) {
-                if (!itemCapa.includes(itemComposite)) itemCapa.push(itemComposite);
-            }
-        });
-    }); 
-    })
+        const source = overlayLayer._source;
+
+        // Evita registrar varias veces el mismo evento.
+        mapa.off("click", source.identify, source);
+
+        source.options.identify = isActive;
+
+        if (isActive && mapa.hasLayer(overlayLayer)) {
+            mapa.on("click", source.identify, source);
+        }
+    });
+}
 
     //Menu WMS & WMTS
     itemCapa.forEach(item => {

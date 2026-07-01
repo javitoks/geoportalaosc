@@ -296,14 +296,18 @@ function loadWmsTplAux(objLayer) {
   } else {
     createWmsLayer(objLayer);
     if (consultDataBtnClose == false) {
-      overlayMaps[layer]._source.options.identify = true;
-    } else if (consultDataBtnClose == true) {
-      overlayMaps[layer]._source.options.identify = false;
-    } else {
-      overlayMaps[layer]._source.options.identify = false;
-    }
-    overlayMaps[layer].addTo(mapa);
-  }
+      overlayMaps[layer].addTo(mapa);
+
+      const source = overlayMaps[layer]._source;
+
+      mapa.off("click", source.identify, source);
+
+      if (consultDataBtnClose === false) {
+      source.options.identify = true;
+      mapa.on("click", source.identify, source);
+  } else {
+      source.options.identify = false;
+}
 }
 
 function ucwords(str) {
@@ -995,15 +999,18 @@ function clickWMSLayer(layer, layer_item, fileName) {
     layer.active = true;
 
     createImportWmsLayer(layer);
+      overlayMaps[layer.name].addTo(mapa);
 
-    if (consultDataBtnClose == false) {
-      overlayMaps[layer.name]._source.options.identify = true;
-    } else if (consultDataBtnClose == true) {
-      overlayMaps[layer.name]._source.options.identify = false;
-    } else {
-      overlayMaps[layer.name]._source.options.identify = false;
-    }
-    overlayMaps[layer.name].addTo(mapa);
+      const source = overlayMaps[layer.name]._source;
+
+      mapa.off("click", source.identify, source);
+
+      if (consultDataBtnClose === false) {
+      source.options.identify = true;
+      mapa.on("click", source.identify, source);
+} else {
+  source.options.identify = false;
+}
 
     //Original
     // layer.L_layer = L.tileLayer
