@@ -134,66 +134,6 @@
           "new_title": "Lagunas de Loreto",
           "new_abstract": "Lagunas de Loreto",
           "new_keywords": "lagunas, loreto"
-        },
-        "Cajasdesagues_Red_Loreto": {
-          "new_title": "Cajas de Desagües de Loreto",
-          "new_abstract": "Cajas de Desagües de Loreto",
-          "new_keywords": "cajas, desagües, loreto"
-        },
-        "Canieria_RN_Loreto": {
-          "new_title": "Canería - RED NUEVA",
-          "new_abstract": "Canería Red Nueva Loreto",
-          "new_keywords": "canería, red nueva, loreto"
-        },
-        "Canieria_RV_Loreto": {
-          "new_title": "Canería - RED VIEJA",
-          "new_abstract": "Canería Red Vieja Loreto",
-          "new_keywords": "canería, red vieja, loreto"
-        },
-        "Nudos_Red_Loreto": {
-          "new_title": "Nudos de Red de Loreto",
-          "new_abstract": "Nudos de Red de Loreto",
-          "new_keywords": "nudos, red, loreto"
-        },
-        "Tapones_Red_Loreto": {
-          "new_title": "Tapones de Red de Loreto",
-          "new_abstract": "Tapones de Red de Loreto",
-          "new_keywords": "tapones, red, loreto"
-        },
-        "Valvulas_Red_Loreto": {
-          "new_title": "Válvulas de Red de Loreto",
-          "new_abstract": "Válvulas de Red de Loreto",
-          "new_keywords": "válvulas, red, loreto"
-        },
-        "Cajasdesagues_Red_Loreto": {
-          "new_title": "Cajas de Desagües de Loreto",
-          "new_abstract": "Cajas de Desagües de Loreto",
-          "new_keywords": "cajas, desagües, loreto"
-        },
-        "Canieria_RN_Loreto": {
-          "new_title": "Canería - RED NUEVA",
-          "new_abstract": "Canería Red Nueva Loreto",
-          "new_keywords": "canería, red nueva, loreto"
-        },
-        "Canieria_RV_Loreto": {
-          "new_title": "Canería - RED VIEJA",
-          "new_abstract": "Canería Red Vieja Loreto",
-          "new_keywords": "canería, red vieja, loreto"
-        },
-        "Nudos_Red_Loreto": {
-          "new_title": "Nudos de Red de Loreto",
-          "new_abstract": "Nudos de Red de Loreto",
-          "new_keywords": "nudos, red, loreto"
-        },
-        "Tapones_Red_Loreto": {
-          "new_title": "Tapones de Red de Loreto",
-          "new_abstract": "Tapones de Red de Loreto",
-          "new_keywords": "tapones, red, loreto"
-        },
-        "Valvulas_Red_Loreto": {
-          "new_title": "Válvulas de Red de Loreto",
-          "new_abstract": "Válvulas de Red de Loreto",
-          "new_keywords": "válvulas, red, loreto"
         }
       }
     },
@@ -247,27 +187,27 @@
           "new_keywords": "relevamiento, ituzaingó"
         },
         "Caneria_Cloaca_Ituzaingo": {
-          "new_title": "Cañería Cloacas Ituzaingo",
+          "new_title": "Cloacas - Cañería ",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
         "Estacion_Elevadora": {
-          "new_title": "Estación Elevadora",
+          "new_title": "Cloacas - Estación Elevadora",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
         "camarareg_cloaca_ituzaingo": {
-          "new_title": "Cámaras de Registro",
+          "new_title": "Cloaca - Cámaras de Registro",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
         "nodos_cloaca_ituzaingo": {
-          "new_title": "Nodos",
+          "new_title": "Cloaca - Nodos",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         },
         "bocasreg_cloaca_ituzaingo": {
-          "new_title": "Bocas de Registro",
+          "new_title": "Cloacas - Bocas de Registro",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
         }
