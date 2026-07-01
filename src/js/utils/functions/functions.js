@@ -11,6 +11,177 @@ var loadLayerOptions = false;
 var currentlyDrawing = false;
 var loadGeoprocessing = false;
 
+
+// Caché para no descargar repetidamente el GetCapabilities
+const wmsCapabilitiesCache = new Map();
+
+/**
+ * Devuelve la URL base del servicio WMS.
+ */
+function getWmsCapabilitiesUrl(host, version = "1.1.1") {
+  const separator = host.includes("?") ? "&" : "?";
+
+  return (
+    host +
+    separator +
+    "service=WMS" +
+    "&request=GetCapabilities" +
+    "&version=" +
+    encodeURIComponent(version)
+  );
+}
+
+/**
+ * Busca una capa dentro del XML de GetCapabilities.
+ */
+function findWmsLayerNode(xml, layerName) {
+  const layers = Array.from(xml.getElementsByTagName("Layer"));
+
+  return layers.find((layerNode) => {
+    const nameNode = Array.from(layerNode.children).find(
+      (child) => child.localName === "Name"
+    );
+
+    return (
+      nameNode &&
+      nameNode.textContent &&
+      nameNode.textContent.trim() === layerName
+    );
+  });
+}
+
+/**
+ * Obtiene el bounding box geográfico de una capa WMS.
+ *
+ * Devuelve:
+ * [[sur, oeste], [norte, este]]
+ */
+function getBoundsFromWmsLayerNode(layerNode) {
+  if (!layerNode) {
+    return null;
+  }
+
+  // WMS 1.3.0
+  const geographicBox = Array.from(layerNode.children).find(
+    (child) => child.localName === "EX_GeographicBoundingBox"
+  );
+
+  if (geographicBox) {
+    const getValue = (tagName) => {
+      const node = Array.from(geographicBox.children).find(
+        (child) => child.localName === tagName
+      );
+
+      return node ? parseFloat(node.textContent) : NaN;
+    };
+
+    const west = getValue("westBoundLongitude");
+    const east = getValue("eastBoundLongitude");
+    const south = getValue("southBoundLatitude");
+    const north = getValue("northBoundLatitude");
+
+    if ([west, east, south, north].every(Number.isFinite)) {
+      return [
+        [south, west],
+        [north, east],
+      ];
+    }
+  }
+
+  // WMS 1.1.1
+  const latLonBoundingBox = Array.from(layerNode.children).find(
+    (child) => child.localName === "LatLonBoundingBox"
+  );
+
+  if (latLonBoundingBox) {
+    const west = parseFloat(latLonBoundingBox.getAttribute("minx"));
+    const south = parseFloat(latLonBoundingBox.getAttribute("miny"));
+    const east = parseFloat(latLonBoundingBox.getAttribute("maxx"));
+    const north = parseFloat(latLonBoundingBox.getAttribute("maxy"));
+
+    if ([west, east, south, north].every(Number.isFinite)) {
+      return [
+        [south, west],
+        [north, east],
+      ];
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Lleva el mapa a la extensión de una capa WMS.
+ */
+async function zoomToWmsLayer(host, layerName, version = "1.1.1") {
+  if (!host || !layerName) {
+    console.warn("No se pudo hacer zoom: faltan host o nombre de capa.");
+    return;
+  }
+
+  const cacheKey = `${host}|${version}`;
+
+  try {
+    let xmlDocument = wmsCapabilitiesCache.get(cacheKey);
+
+    if (!xmlDocument) {
+      const capabilitiesUrl = getWmsCapabilitiesUrl(host, version);
+
+      const response = await fetch(capabilitiesUrl, {
+        method: "GET",
+        mode: "cors",
+        credentials: "omit",
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `GetCapabilities respondió HTTP ${response.status}`
+        );
+      }
+
+      const xmlText = await response.text();
+
+      xmlDocument = new DOMParser().parseFromString(
+        xmlText,
+        "application/xml"
+      );
+
+      const parserError = xmlDocument.querySelector("parsererror");
+
+      if (parserError) {
+        throw new Error("La respuesta GetCapabilities no es un XML válido.");
+      }
+
+      wmsCapabilitiesCache.set(cacheKey, xmlDocument);
+    }
+
+    const layerNode = findWmsLayerNode(xmlDocument, layerName);
+    const bounds = getBoundsFromWmsLayerNode(layerNode);
+
+    if (!bounds) {
+      console.warn(
+        `No se encontró una extensión válida para la capa ${layerName}.`
+      );
+      return;
+    }
+
+    mapa.fitBounds(bounds, {
+      padding: [30, 30],
+      maxZoom: 18,
+      animate: true,
+      duration: 0.8,
+    });
+  } catch (error) {
+    console.error(
+      `Error al hacer zoom sobre la capa ${layerName}:`,
+      error
+    );
+  }
+}
+
+
+
+
 function setTableAsPopUp(cond) {
   loadTableAsPopUp = cond;
 }
@@ -288,8 +459,10 @@ function loadGeojson(url, layer) {
 }
 
 function loadWmsTplAux(objLayer) {
-  wmsUrl = objLayer.capa.host;
-  layer = objLayer.capa.nombre;
+  const wmsUrl = objLayer.capa.host;
+  const layer = objLayer.capa.nombre;
+  const version = objLayer.capa.version || "1.1.1";
+
   if (overlayMaps.hasOwnProperty(layer)) {
     overlayMaps[layer].removeFrom(mapa);
     delete overlayMaps[layer];
@@ -300,6 +473,9 @@ function loadWmsTplAux(objLayer) {
     source.options.identify = consultDataBtnClose === false;
 
     overlayMaps[layer].addTo(mapa);
+
+    // Llevar el mapa automáticamente a la extensión de la capa
+    zoomToWmsLayer(wmsUrl, layer, version);
   }
 }
 
