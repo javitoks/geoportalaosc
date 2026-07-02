@@ -78,9 +78,9 @@
 
     {
       "tab": {
-        "id": "Información",
+        "id": "Informacion",
         "searcheable": true,
-        "content": "Explotación"
+        "content": "Información"
       },
       "type": "wmslayer",
       "peso": 10,
@@ -164,9 +164,9 @@
     },
     {
       "tab": {
-        "id": "Información",
+        "id": "Informacion",
         "searcheable": true,
-        "content": "Explotación"
+        "content": "Información"
       },
       "type": "wmslayer",
       "peso": 10,
@@ -213,33 +213,6 @@
         }
       }
     },
-    {
-      "tab": {
-        "id": "COVESA",
-        "searcheable": true,
-        "content": "Covesa"
-      },
-      "type": "wmslayer",
-      "peso": 10,
-      "nombre": "Distrito ITUZAINGÓ",
-      "short_abstract": "Provincia de Corrientes",
-      "class": "",
-      "seccion": "distrito-ituzaingo",
-      "servicio": "wms",
-      "version": "1.1.1",
-      "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/distritos_aosc/wms",
-      "roles": ["admin", "ituzaingo", "covesa"],
-      "feature_info_format": "application/json",
-
-      "customize_layers": {
-        "Barrios_ituzaingo": {
-          "new_title": "Barrios de Ituzaingó",
-          "new_abstract": "Barrios de Ituzaingó",
-          "new_keywords": "Barrios, ituzaingó"
-        }
-      }
-    },
-
     {
       "tab": {
         "id": "externos",
