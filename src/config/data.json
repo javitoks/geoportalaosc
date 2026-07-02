@@ -90,7 +90,7 @@
       "seccion": "distrito-loreto",
       "servicio": "wms",
       "version": "1.1.1",
-      "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/distritos_aosc/wms",
+      "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/distrito_loreto/wms",
       "roles": ["admin", "loreto"],
       "feature_info_format": "application/json",
 
