@@ -95,45 +95,10 @@
       "feature_info_format": "application/json",
 
       "customize_layers": {
-        "Barrios_Loreto": {
-          "new_title": "Barrios de Loreto",
-          "new_abstract": "Barrios de Loreto",
-          "new_keywords": "barrios, loreto"
-        },
-        "Tanques_Red_Loreto": {
-          "new_title": "Tanques de Red de Loreto",
-          "new_abstract": "Tanques de Red de Loreto",
-          "new_keywords": "tanques, red, loreto"
-        },
-        "Manzanas_Loreto": {
-          "new_title": "Manzanas de Loreto",
-          "new_abstract": "Manzanas de Loreto",
-          "new_keywords": "manzanas, loreto"
-        },
-        "ZonaChacras_Loreto": {
-          "new_title": "Zona de Chacras de Loreto",
-          "new_abstract": "Zona de Chacras de Loreto",
-          "new_keywords": "zona, chacras, loreto"
-        },
-        "CuentasUsuarios_Loreto": {
+         "CuentasUsuarios_Loreto": {
           "new_title": "Cuentas de Usuarios de Loreto",
           "new_abstract": "Cuentas de Usuarios de Loreto",
           "new_keywords": "cuentas, usuarios, loreto"
-        },
-        "Perforaciones_Red_Loreto": {
-          "new_title": "Perforaciones de Red de Loreto",
-          "new_abstract": "Perforaciones de Red de Loreto",
-          "new_keywords": "perforaciones, red, loreto"
-        },
-        "Inmuebles_POL_Loreto": {
-          "new_title": "Inmuebles de Loreto",
-          "new_abstract": "Los inmuebles de Loreto son las propiedades o terrenos que se encuentran dentro del distrito.",
-          "new_keywords": "inmuebles, loreto"
-        },
-        "Lagunas_Loreto": {
-          "new_title": "Lagunas de Loreto",
-          "new_abstract": "Lagunas de Loreto",
-          "new_keywords": "lagunas, loreto"
         }
       }
     },
