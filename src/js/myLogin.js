@@ -3,6 +3,7 @@ login = (function () {
 
     async function process() {
         const errorMessage = document.getElementById("loginErrorMessage");
+        const loginButton = document.getElementById("loginButton");
 
         const username = document.getElementById("input-user").value.trim();
         const password = document.getElementById("input-pwd").value.trim();
@@ -22,10 +23,18 @@ login = (function () {
         }
 
         try {
-            const res = await fetch("src/config/user.json");
+            loginButton.disabled = true;
+            loginButton.textContent = "Verificando…";
+
+            if (!window.dcodeIO?.bcrypt) {
+                throw new Error("No se pudo cargar el verificador de contraseñas.");
+            }
+
+            const res = await fetch("src/config/user.json", { cache: "no-store" });
+            if (!res.ok) throw new Error(`No se pudo cargar la configuración de usuarios (${res.status}).`);
             const users = await res.json();
 
-            const user = users.find(u => u.name === username);
+            const user = users.find(u => u.name.toLowerCase() === username.toLowerCase());
 
             if (!user) {
                 errorMessage.textContent = "Usuario no encontrado.";
@@ -46,14 +55,7 @@ login = (function () {
                 return;
             }
 
-            // Guardar cookies
-            setCookie("name", user.name);
-            setCookie("rol", user.rol);
-            setCookie("lat", user.lat_4326);
-            setCookie("lon", user.lon_4326);
-            setCookie("zoom", user.zoom ?? 13);
-            setCookie("isLogged", true);
-            setCookie("autologin", recuerdame ? "1" : "0");
+            AuthSession.create(user, recuerdame);
 
             // Redirigir a index.html
             window.location.href = "index.html";
@@ -65,26 +67,10 @@ login = (function () {
             setTimeout(() => {
                 errorMessage.style.display = "none";
             }, 5000);
+        } finally {
+            loginButton.disabled = false;
+            loginButton.textContent = "Ingresar";
         }
-    }
-
-    function setCookie(name, value, days = 1) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = date.toUTCString();
-
-        const encodedName = encodeURIComponent(name);
-        const encodedValue = encodeURIComponent(value);
-
-        let cookieString = `${encodedName}=${encodedValue}; expires=${expires}; path=/;`;
-
-        if (location.protocol === 'https:') {
-            cookieString += ' Secure; SameSite=Lax';
-        } else {
-            cookieString += ' SameSite=Lax';
-        }
-
-        document.cookie = cookieString;
     }
 
     return {
