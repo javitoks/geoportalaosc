@@ -102,6 +102,38 @@
         }
       }
     },
+
+
+{
+      "tab": {
+        "id": "SiGInRed",
+        "searcheable": true,
+        "content": "Información"
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Reclamos",
+      "short_abstract": "---",
+      "class": "",
+      "seccion": "reclamos-siginred",
+      "servicio": "wms",
+      "version": "1.1.1",
+      "host": "https://geoserver.aosc-enteregulador.gob.ar/geoserver/siginred/wms",
+      "roles": ["admin", "loreto"],
+      "feature_info_format": "application/json",
+
+      "customize_layers": {
+        "geoserver_reclamos": {
+          "new_title": "Reclamos SiGInRed",
+          "new_abstract": "Reclamos SiGInRed",
+          "new_keywords": "reclamos, siginred"
+        }
+      }
+    },
+
+
+
+
     {
       "tab": {
         "id": "Tecnica",
