@@ -114,12 +114,8 @@ loginatic = function () {
   };
 
   this.logout = () => {
-    //this.currentLogin = false;
-    const cookies = ["autologin", "name", "rol", "lat", "lon", "zoom", "isLogged"];
-    cookies.forEach(name => {
-      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    });
-    location.reload();
+    AuthSession.clear();
+    window.location.replace("login.html");
   };
 
   this._addLoginWrapper = () => {

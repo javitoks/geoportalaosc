@@ -1,6 +1,6 @@
 # Revisión rápida del proyecto Geoportal AOSC
 
-Fecha de revisión: 2026-03-18
+Fecha de revisión: 2026-08-12
 
 ## Panorama general
 
@@ -32,11 +32,22 @@ El proyecto está organizado como una aplicación web estática (HTML/CSS/JS) co
 
 ## Mejora aplicada en esta revisión
 
-- Se corrigió una ruta CSS con separadores de Windows (`src\styles\css\main.css`) a formato web estándar (`src/styles/css/main.css`) en `index.html` para evitar inconsistencias de carga en entornos o herramientas estrictas.
+- Se centralizó la creación, lectura y eliminación de la sesión del navegador en `src/js/auth-session.js`.
+- `index.html` ahora valida la sesión antes de inicializar el mapa; cerrar sesión elimina las cookies y vuelve al login en vez de recargar una vista sin protección.
+- El formulario de acceso usa un único evento `submit`, por lo que funciona tanto con el botón como con Enter, evita envíos duplicados e informa fallos de carga de usuarios o de bcrypt.
+- “Recuérdame” ahora tiene una semántica real: sesión de navegador cuando no se selecciona y persistencia durante 30 días cuando se selecciona.
+
+## Diagnóstico del login
+
+La causa principal era un flujo incompleto: `login.html` creaba la cookie `isLogged`, pero `index.html` cargaba `app.js`, que no comprobaba esa cookie. La comprobación existía únicamente en `app2.js`, archivo que la página no incluye. Además, el logout borraba cookies y recargaba `index.html`, permitiendo que la aplicación continuara abierta.
+
+La corrección aplicada hace coherentes entrada, validación y salida. No convierte este mecanismo en autenticación segura: cualquier cookie creada desde JavaScript puede ser modificada por el usuario y `user.json` es público por definición en una aplicación estática.
 
 ## Próximos pasos sugeridos (prioridad)
 
-1. Definir estrategia de autenticación segura con backend.
-2. Normalizar origen de dependencias externas (CDN estable o self-hosted).
-3. Crear checklist de release (paths, recursos, dependencias, smoke test manual).
-4. Agregar validaciones automáticas mínimas (lint HTML/JS + chequeo de links locales).
+1. **Prioridad crítica:** implementar autenticación en backend; almacenar contraseñas solo allí, emitir una cookie de sesión `HttpOnly`, `Secure` y `SameSite`, y autorizar también las capas/servicios en el servidor. Después, retirar `src/config/user.json` del contenido publicado.
+2. **Prioridad alta:** eliminar los dos sistemas de login superpuestos (`components/login/login.js` para GeoServer y `loginatic.js` para el portal), o documentar y renombrar claramente sus responsabilidades.
+3. **Prioridad alta:** empaquetar bcrypt y los recursos críticos localmente. Actualmente, una caída o bloqueo del CDN impide iniciar sesión.
+4. **Prioridad media:** normalizar las dependencias antiguas y sus orígenes (especialmente Bootstrap 3 servido desde un sitio de documentación).
+5. **Prioridad media:** incorporar pruebas automatizadas del ciclo login/logout, lint de HTML/JS y chequeo de enlaces locales en integración continua.
+6. **Prioridad media:** definir Content Security Policy y retirar handlers JavaScript inline para reducir la superficie de XSS.
