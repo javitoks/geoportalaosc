@@ -156,11 +156,7 @@
 
         <div id="search-navbar" class="navbar-new-content"></div>
 
-        <div id="logo-help" class="navbar-new-content">
-          <span class="xxsmall-hide">
-            <a class="ui-btn-nomargin ui-btn-secondary" onclick="loginatic.logout();">CERRAR SESION <span class="margin-span fa fa-sign-out-alt" aria-hidden="true"></span></a>
-          </span>
-        </div>
+        <div id="logo-help" class="navbar-new-content"></div>
       </div>
       <span id="geoserver-login-btn" class="navbar-new-content">
       </span>
@@ -168,10 +164,20 @@
   </nav>
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebar-container" class="col-xs-12 col-12 col-sm-3 col-md-3 collapse sidebar _panel-group" aria-expanded="false">
-        <div class="loading"><img alt="loading..." src="src/styles/images/loading.svg"></div>
-        <div id="sidebar" class="nav nav-sidebar panel panel-default"></div>
-      </nav>
+      <aside id="sidebar-container" class="col-xs-12 col-12 col-sm-3 col-md-3 collapse sidebar _panel-group" aria-expanded="false" aria-label="Menú principal">
+        <div class="sidebar-header">
+          <span class="sidebar-title">Menú</span>
+        </div>
+        <nav class="sidebar-nav" aria-label="Opciones del menú">
+          <div class="loading"><img alt="loading..." src="src/styles/images/loading.svg"></div>
+          <div id="sidebar" class="nav nav-sidebar panel panel-default"></div>
+        </nav>
+        <div class="sidebar-footer">
+          <button type="button" class="ui-btn-nomargin ui-btn-secondary sidebar-logout" onclick="loginatic.logout();">
+            CERRAR SESIÓN <span class="margin-span fa fa-sign-out-alt" aria-hidden="true"></span>
+          </button>
+        </div>
+      </aside>
       <div class="map-container">
         <div id="mapa" class="col-xs-12 col-12 col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main"></div>
       </div>

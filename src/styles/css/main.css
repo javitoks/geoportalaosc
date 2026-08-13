@@ -617,15 +617,21 @@ li.active>div>a {
 }
 @media (min-width: 768px) {
   #sidebar-container.collapse {
-    height: 93% !important;
+    height: calc(100vh - 51px) !important;
   }
 }
 @media (max-width: 767px) {
   #sidebar-container.collapse {
-    height: initial;
-    max-height: 50%;
-    overflow-y: auto;
+    height: min(50vh, calc(100vh - 51px));
+    max-height: calc(100vh - 51px);
+    overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+  }
+
+  #sidebar-container.collapse.in,
+  #sidebar-container.collapsing {
+    display: flex;
+    flex-direction: column;
   }
 }
 .wms-combobox-selector {

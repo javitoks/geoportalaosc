@@ -31,6 +31,45 @@ body {
 .sidebar {
   display: none;
   padding: 0;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar-header,
+.sidebar-footer {
+  flex: 0 0 auto;
+  background-color: #f5f5f5;
+}
+
+.sidebar-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar-title {
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.sidebar-footer {
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+}
+
+.sidebar-logout {
+  width: 100%;
+}
+
+.sidebar-logout:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .panel-heading {
@@ -49,10 +88,11 @@ body {
     bottom: 0;
     left: 0;
     z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
-    /* Scrollable contents if viewport is shorter than content. */
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 51px);
+    max-height: calc(100vh - 51px);
+    overflow: hidden;
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
   }
