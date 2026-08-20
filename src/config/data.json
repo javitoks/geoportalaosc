@@ -99,6 +99,16 @@
           "new_title": "Cuentas de Usuarios de Loreto",
           "new_abstract": "Cuentas de Usuarios de Loreto",
           "new_keywords": "cuentas, usuarios, loreto"
+        },
+        "Barrios_Loreto": {
+          "new_title": "Barrios Loreto",
+          "new_abstract": "Barrios Loreto",
+          "new_keywords": "barrios, loreto"
+        },
+        "Manzanas_Loreto": {
+          "new_title": "Manzanas Loreto",
+          "new_abstract": "Manzanas Loreto",
+          "new_keywords": "manzanas, loreto"
         }
       }
     },
