@@ -109,6 +109,16 @@
           "new_title": "Manzanas Loreto",
           "new_abstract": "Manzanas Loreto",
           "new_keywords": "manzanas, loreto"
+        },
+        "red_nueva_agua_potable_loreto": {
+          "new_title": "Red Nueva Agua Potable Loreto",
+          "new_abstract": "Red Nueva Agua Potable Loreto",
+          "new_keywords": "red, nueva, agua, potable, loreto"
+        },
+        "red_vieja_agua_potable_loreto": {
+          "new_title": "Red Vieja Agua Potable Loreto",
+          "new_abstract": "Red Vieja Agua Potable Loreto",
+          "new_keywords": "red, vieja, agua, potable, loreto"
         }
       }
     },
@@ -198,7 +208,7 @@
           "new_abstract": "Cuentas de Usuarios - Ituzaingo",
           "new_keywords": "relevamiento, ituzaingó"
         },
-        "Caneria_Cloaca_Ituzaingo": {
+        "canieria_cloaca_ituzaingo": {
           "new_title": "Cloacas - Cañería ",
           "new_abstract": "Red de Cloacas - Ituzaingo",
           "new_keywords": "cloacas, ituzaingó"
