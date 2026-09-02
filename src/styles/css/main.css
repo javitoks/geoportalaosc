@@ -1178,12 +1178,6 @@ New navbar
   gap: 10px;
 }
 
-#logoutDiv {
-  margin-left: 0 !important;
-  float: none !important;
-  position: static !important;
-}
-
 .margin-span{
   margin-left: 10px;
 }
@@ -1210,6 +1204,41 @@ New navbar
 #geoserver-login-btn {
   width: auto;
   align-self: center;
+}
+
+.portal-session-actions {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-right: 10px;
+}
+
+.portal-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 36px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.portal-logout:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .portal-session-actions {
+    padding-right: 4px;
+  }
+
+  .portal-logout-label {
+    display: none;
+  }
+
+  .portal-logout .margin-span {
+    margin-left: 0;
+  }
 }
 #logo-navbar>div>a,
 #logoText {

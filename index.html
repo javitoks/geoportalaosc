@@ -79,7 +79,7 @@
   <script src="src/js/components/user-message/user-message.js"></script>
   <script src="src/js/components/cookies/cookies.js"></script>
   <script src="src/js/auth-session.js"></script>
-  <script>AuthSession.requireAuthentication("login.html");</script>
+  <script>AuthSession.start("login.html");</script>
   <script src="src/js/app.js"></script>
   <script src="src/js/components/styles/styles.js"></script>
   <script src="src/js/components/login/login.js"></script>
@@ -158,7 +158,11 @@
 
         <div id="logo-help" class="navbar-new-content"></div>
       </div>
-      <span id="geoserver-login-btn" class="navbar-new-content">
+      <span id="geoserver-login-btn" class="navbar-new-content portal-session-actions">
+        <button id="portal-logout-button" type="button" class="ui-btn-nomargin ui-btn-secondary portal-logout" data-auth-logout aria-label="Cerrar sesión" title="Cerrar sesión">
+          <span class="portal-logout-label">CERRAR SESIÓN</span>
+          <span class="margin-span fa fa-sign-out-alt" aria-hidden="true"></span>
+        </button>
       </span>
     </div>
   </nav>
@@ -172,11 +176,6 @@
           <div class="loading"><img alt="loading..." src="src/styles/images/loading.svg"></div>
           <div id="sidebar" class="nav nav-sidebar panel panel-default"></div>
         </nav>
-        <div class="sidebar-footer">
-          <button type="button" class="ui-btn-nomargin ui-btn-secondary sidebar-logout" onclick="loginatic.logout();">
-            CERRAR SESIÓN <span class="margin-span fa fa-sign-out-alt" aria-hidden="true"></span>
-          </button>
-        </div>
       </aside>
       <div class="map-container">
         <div id="mapa" class="col-xs-12 col-12 col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main"></div>

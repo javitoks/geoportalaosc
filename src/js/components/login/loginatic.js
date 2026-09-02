@@ -15,10 +15,8 @@ loginatic = function () {
     // }
   };
 
-  this.check = () => {    
-    if ($("#btn-logout").length == 0) {
-      this._addLogoutButton();
-    }
+  this.check = () => {
+    AuthSession.requireAuthentication("login.html");
 
     // if (getCookie("autologin") == "1") {
     //   let lat = getCookie("lat");
@@ -114,8 +112,7 @@ loginatic = function () {
   };
 
   this.logout = () => {
-    AuthSession.clear();
-    window.location.replace("login.html");
+    AuthSession.logout("login.html");
   };
 
   this._addLoginWrapper = () => {
@@ -165,16 +162,4 @@ loginatic = function () {
     $("#login-wrapper").append(wrapperHtml);
   };
 
-  this._addLogoutButton = () => {
-    const logoutButton = document.createElement("div");
-    logoutButton.className = "leaflet-bar leaflet-control btn-logout";
-    logoutButton.id = "btn-logout";
-    logoutButton.title = "Cerrar sesión";
-    logoutButton.onclick = function () {
-      loginatic.logout();
-    };
-    logoutButton.innerHTML = `<a><span class="fa fa-sign-out-alt" aria-hidden="true"></span></a>`;
-
-    document.getElementById("logoutDiv").append(logoutButton);
-  };
 };
