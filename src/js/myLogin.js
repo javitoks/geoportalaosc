@@ -7,8 +7,6 @@ login = (function () {
 
         const username = document.getElementById("input-user").value.trim();
         const password = document.getElementById("input-pwd").value.trim();
-        const recuerdame = document.getElementById("inp-recuerdame").checked;
-
         // Limpiar error previo
         errorMessage.textContent = "";
         errorMessage.style.display = "none";
@@ -55,7 +53,7 @@ login = (function () {
                 return;
             }
 
-            AuthSession.create(user, recuerdame);
+            AuthSession.create(user);
 
             // Redirigir a index.html
             window.location.href = "index.html";

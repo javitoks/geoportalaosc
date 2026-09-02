@@ -35,7 +35,8 @@ El proyecto está organizado como una aplicación web estática (HTML/CSS/JS) co
 - Se centralizó la creación, lectura y eliminación de la sesión del navegador en `src/js/auth-session.js`.
 - `index.html` ahora valida la sesión antes de inicializar el mapa; cerrar sesión elimina las cookies y vuelve al login en vez de recargar una vista sin protección.
 - El formulario de acceso usa un único evento `submit`, por lo que funciona tanto con el botón como con Enter, evita envíos duplicados e informa fallos de carga de usuarios o de bcrypt.
-- “Recuérdame” ahora tiene una semántica real: sesión de navegador cuando no se selecciona y persistencia durante 30 días cuando se selecciona.
+- La sesión queda limitada al navegador y expira automáticamente luego de 2 horas sin actividad. La opción “Recuérdame” fue retirada para evitar accesos persistentes durante 30 días.
+- “Cerrar sesión” se muestra en la esquina superior derecha (como icono en pantallas pequeñas) y se eliminó el código residual que intentaba insertarlo en un `logoutDiv` inexistente.
 
 ## Diagnóstico del login
 

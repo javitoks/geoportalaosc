@@ -35,8 +35,7 @@ body {
   overflow: hidden;
 }
 
-.sidebar-header,
-.sidebar-footer {
+.sidebar-header {
   flex: 0 0 auto;
   background-color: #f5f5f5;
 }
@@ -56,20 +55,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-}
-
-.sidebar-footer {
-  padding: 10px 15px;
-  border-top: 1px solid #ddd;
-}
-
-.sidebar-logout {
-  width: 100%;
-}
-
-.sidebar-logout:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
 }
 
 .panel-heading {
